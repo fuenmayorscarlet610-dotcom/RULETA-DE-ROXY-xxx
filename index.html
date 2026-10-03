@@ -3,13 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ruleta Casino VIP | VEN Y GANA CONMIGO PAPI | Exclusiva</title>
+    <title>Ruleta Casino VIP | TRoxyVenomT</title>
+    
+    <!-- Etiquetas para Preview en Redes Sociales y Telegram -->
+    <meta property="og:title" content="Ruleta Casino VIP | Roxy Venom">
+    <meta property="og:description" content="¡Gira la ruleta y gana premios exclusivos! Contenido VIP, videollamadas y mucho más.">
+    <!-- REEMPLAZA EL ENLACE DE ABAJO POR EL DE TU FOTO PARA LA VISTA PREVIA (PREVIEW) -->
+    <meta property="og:image" content="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=500">
+    <meta property="og:type" content="website">
+
     <!-- Fuentes de Google -->
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Rajdhani:wght@500;700&display=swap" rel="stylesheet">
     <style>
         :root {
             --bg-deep: #0a060f;
-            --panel-bg: rgba(18, 12, 24, 0.85);
+            --panel-bg: rgba(18, 12, 24, 0.9);
             --neon-pink: #ff2a85;
             --neon-purple: #9d00ff;
             --neon-cyan: #00f3ff;
@@ -43,7 +51,7 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            background: rgba(10, 6, 15, 0.9);
+            background: rgba(10, 6, 15, 0.95);
             border-bottom: 1px solid rgba(255, 42, 133, 0.3);
             box-shadow: 0 0 20px rgba(157, 0, 255, 0.2);
             position: sticky;
@@ -68,7 +76,7 @@
 
         .brand h1 {
             font-family: 'Cinzel', serif;
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             color: var(--text-main);
             text-shadow: 0 0 10px var(--neon-pink);
             letter-spacing: 1px;
@@ -76,7 +84,7 @@
 
         .header-actions {
             display: flex;
-            gap: 10px;
+            gap: 8px;
         }
 
         .btn-icon {
@@ -89,6 +97,7 @@
             font-weight: 700;
             transition: all 0.3s;
             box-shadow: 0 0 5px rgba(0, 243, 255, 0.2);
+            font-size: 0.85rem;
         }
 
         .btn-icon:hover {
@@ -113,7 +122,7 @@
             border-radius: 16px;
             padding: 20px;
             width: 100%;
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.6);
             backdrop-filter: blur(8px);
             text-align: center;
         }
@@ -123,16 +132,17 @@
             justify-content: space-around;
             width: 100%;
             padding: 10px;
-            background: rgba(0,0,0,0.4);
+            background: rgba(0,0,0,0.5);
             border-radius: 10px;
             border: 1px solid rgba(255, 215, 0, 0.3);
             margin-bottom: 15px;
+            font-size: 0.9rem;
         }
 
         .stat-item span {
             color: var(--gold);
             font-weight: 700;
-            font-size: 1.1rem;
+            font-size: 1rem;
         }
 
         .wheel-container {
@@ -223,7 +233,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(5, 3, 8, 0.9);
+            background: rgba(5, 3, 8, 0.92);
             z-index: 1000;
             justify-content: center;
             align-items: center;
@@ -260,13 +270,13 @@
             border-radius: 8px;
             border-left: 3px solid var(--gold);
             margin: 10px 0;
-            font-size: 0.95rem;
+            font-size: 0.9rem;
             text-align: left;
         }
 
         .result-box {
             margin-top: 15px;
-            padding: 12px;
+            padding: 15px;
             background: rgba(0, 243, 255, 0.1);
             border: 1px solid var(--neon-cyan);
             border-radius: 8px;
@@ -274,15 +284,48 @@
             color: var(--neon-cyan);
             font-weight: 700;
             display: none;
+            animation: fadeIn 0.5s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .telegram-btn {
+            display: inline-block;
+            margin-top: 15px;
+            background: #0088cc;
+            color: white;
+            padding: 12px 25px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 700;
+            box-shadow: 0 0 15px rgba(0, 136, 204, 0.5);
+            transition: all 0.3s;
+            width: 100%;
+        }
+        .telegram-btn:hover {
+            background: #0099ee;
+            box-shadow: 0 0 25px rgba(0, 136, 204, 0.8);
+            transform: scale(1.02);
         }
     </style>
 </head>
 <body>
 
+    <!-- ==========================================
+         AQUÍ PONES EL ENLACE DIRECTO DE TU MÚSICA (.mp3)
+         ========================================== -->
+    <audio id="bgMusic" src="AQUI_PONES_EL_ENLACE_DE_TU_CANCION.mp3" loop></audio>
+
     <header>
         <div class="brand">
+            <!-- ==========================================
+                 AQUÍ PONES EL ENLACE DE TU FOTO DE PERFIL
+                 ========================================== -->
             <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=150" alt="Perfil" class="profile-pic" id="headerProfilePic">
-            <h1 id="headerBrandName">VIP Roulette</h1>
+            <h1 id="headerBrandName">Roxy VIP</h1>
         </div>
         <div class="header-actions">
             <button class="btn-icon" onclick="toggleAudio()" id="audioBtn">🎵 Música</button>
@@ -298,7 +341,7 @@
             </div>
 
             <div class="input-group" id="loginSessionBox">
-                <label>Ingresa tu Cédula para jugar o recargar:</label>
+                <label>Ingresa tu Cédula para jugar:</label>
                 <div style="display: flex; gap: 8px;">
                     <input type="text" id="userCedulaInput" placeholder="Ej: V29123456">
                     <button class="btn-icon" onclick="registrarSesion()">Acceder</button>
@@ -326,7 +369,7 @@
                 <p><strong>Banco:</strong> Banesco (0134)</p>
                 <p><strong>Teléfono:</strong> 0414-0000000</p>
                 <p><strong>Cédula:</strong> V-12.345.678</p>
-                <p><strong>Monto por Giro:</strong> $5 o su Eq. en Bs.</p>
+                <p><strong>Monto por Giro:</strong> Consultar al privado</p>
             </div>
             
             <hr style="border-color:rgba(255,255,255,0.1); margin:15px 0;">
@@ -354,7 +397,7 @@
             <button class="close-btn" onclick="closeModal('adminModal')">&times;</button>
             <h3 style="color:var(--neon-pink); margin-bottom:15px; font-family:'Cinzel',serif;">Panel de Control</h3>
             <div class="input-group">
-                <label>PIN de Administrador:</label>
+                <label>PIN de Administrador (1712):</label>
                 <input type="password" id="adminPin" placeholder="****">
             </div>
             <button class="btn-icon" style="width:100%; margin-bottom:15px;" onclick="verificarAdmin()">Acceder Panel</button>
@@ -381,25 +424,31 @@
     </div>
 
     <script>
+        // --- OPCIONES EXACTAS DE LA RULETA (Con emoción de ganar y perder) ---
         const premios = [
-            { texto: "Pack Express", color: "#9d00ff" },
-            { texto: "Videollamada 5m", color: "#ff2a85" },
-            { texto: "Custom Corto", color: "#00f3ff" },
-            { texto: "Voz Íntima", color: "#7928ca" },
-            { texto: "Intento Extra", color: "#ff0055" },
-            { texto: "Sorpresa VIP", color: "#00dfc4" }
+            { texto: "Sexting", color: "#ff2a85", tipo: "premio" },
+            { texto: "Videollamada 5m", color: "#9d00ff", tipo: "premio" },
+            { texto: "Presencial $35/h", color: "#ffd700", tipo: "premio" },
+            { texto: "¡Nada!", color: "#444444", tipo: "pierde" },
+            { texto: "Presencial Gratis", color: "#00f3ff", tipo: "premio" },
+            { texto: "Canal VIP 1 Sem", color: "#ff0055", tipo: "premio" },
+            { texto: "VIP de por vida", color: "#7928ca", tipo: "premio" },
+            { texto: "Pack de fotos", color: "#00dfc4", tipo: "premio" },
+            { texto: "Audios ricos", color: "#ff55aa", tipo: "premio" },
+            { texto: "Vídeos", color: "#330066", tipo: "premio" },
+            { texto: "¡Nada!", color: "#222222", tipo: "pierde" }
         ];
+
+        // --- ENLACE A TU CANAL VIP/PRIVADO ---
+        const telegramLink = "https://t.me/TRoxyVenomT";
 
         let currentUser = null;
         let userTiros = 0;
         let isSpinning = false;
         let audioCtx = null;
-        let isMusicPlaying = false;
-        let musicInterval = null;
 
         function getDb() {
-            let db = JSON.parse(localStorage.getItem('casino_db')) || { users: {}, payments: [] };
-            return db;
+            return JSON.parse(localStorage.getItem('casino_db')) || { users: {}, payments: [] };
         }
 
         function saveDb(db) {
@@ -439,6 +488,27 @@
             }
         }
 
+        // --- CONTROL DE MÚSICA DE FONDO OPTIMIZADO ---
+        function toggleAudio() {
+            const bgMusic = document.getElementById('bgMusic');
+            const btn = document.getElementById('audioBtn');
+            
+            if (bgMusic.paused) {
+                bgMusic.play().catch(() => alert("Aún no has puesto el enlace de tu música en el código HTML."));
+                btn.style.borderColor = 'var(--neon-pink)';
+                btn.style.background = 'var(--neon-pink)';
+                btn.style.color = 'white';
+                btn.innerText = "🎵 Pausar";
+            } else {
+                bgMusic.pause();
+                btn.style.borderColor = 'var(--neon-cyan)';
+                btn.style.background = 'transparent';
+                btn.style.color = 'var(--neon-cyan)';
+                btn.innerText = "🎵 Música";
+            }
+        }
+
+        // --- EFECTOS DE SONIDO SINTÉTICOS PARA GANAR/PERDER (NO NECESITAN ARCHIVOS) ---
         function initAudio() {
             if (!audioCtx) {
                 audioCtx = new (window.AudioContext || window.webkitAudioContext)();
@@ -462,33 +532,9 @@
             } catch(e){}
         }
 
-        function toggleAudio() {
-            initAudio();
-            isMusicPlaying = !isMusicPlaying;
-            const btn = document.getElementById('audioBtn');
-            if (isMusicPlaying) {
-                btn.style.borderColor = 'var(--neon-pink)';
-                btn.style.background = 'var(--neon-pink)';
-                btn.style.color = 'white';
-                const notas = [220, 246.94, 261.63, 329.63, 392.00];
-                musicInterval = setInterval(() => {
-                    if(!isMusicPlaying) return;
-                    let nota = notas[Math.floor(Math.random() * notas.length)];
-                    playBeep(nota, 0.4, 'triangle');
-                }, 800);
-            } else {
-                btn.style.borderColor = 'var(--neon-cyan)';
-                btn.style.background = 'transparent';
-                btn.style.color = 'var(--neon-cyan)';
-                clearInterval(musicInterval);
-            }
-        }
-
         function playWinSound() {
-            playBeep(523.25, 0.15);
-            setTimeout(() => playBeep(659.25, 0.15), 150);
-            setTimeout(() => playBeep(783.99, 0.3), 300);
-            setTimeout(() => playBeep(1046.50, 0.5), 450);
+            playBeep(523.25, 0.15); setTimeout(() => playBeep(659.25, 0.15), 150);
+            setTimeout(() => playBeep(783.99, 0.3), 300); setTimeout(() => playBeep(1046.50, 0.5), 450);
         }
 
         function playLoseSound() {
@@ -496,6 +542,7 @@
             setTimeout(() => playBeep(220, 0.4, 'sawtooth'), 200);
         }
 
+        // --- CONFIGURACIÓN DE LA RULETA ---
         const canvas = document.getElementById('wheelCanvas');
         const ctx = canvas.getContext('2d');
         const radius = canvas.width / 2;
@@ -507,67 +554,4 @@
 
             premios.forEach((premio, i) => {
                 const angle = anguloRotacion + i * arc;
-                ctx.beginPath();
-                ctx.fillStyle = premio.color;
-                ctx.moveTo(radius, radius);
-                ctx.arc(radius, radius, radius - 5, angle, angle + arc, false);
-                ctx.lineTo(radius, radius);
-                ctx.fill();
-                ctx.strokeStyle = '#0a060f';
-                ctx.lineWidth = 2;
-                ctx.stroke();
-
-                ctx.save();
-                ctx.translate(radius, radius);
-                ctx.rotate(angle + arc / 2);
-                ctx.textAlign = "right";
-                ctx.fillStyle = "#ffffff";
-                ctx.font = "bold 13px 'Rajdhani', sans-serif";
-                ctx.fillText(premio.texto, radius - 15, 5);
-                ctx.restore();
-            });
-
-            ctx.beginPath();
-            ctx.arc(radius, radius, 18, 0, 2 * Math.PI);
-            ctx.fillStyle = '#0a060f';
-            ctx.fill();
-            ctx.lineWidth = 3;
-            ctx.strokeStyle = 'var(--neon-pink)';
-            ctx.stroke();
-        }
-
-        function girarRuleta() {
-            if (isSpinning || !currentUser || userTiros <= 0) return;
-            
-            isSpinning = true;
-            let db = getDb();
-            userTiros--;
-            db.users[currentUser].tiros = userTiros;
-            saveDb(db);
-            document.getElementById('lblTiros').innerText = userTiros;
-            actualizarBotonGirar();
-
-            const resultBox = document.getElementById('resultBox');
-            resultBox.style.display = 'none';
-
-            let spinAngleValue = Math.random() * 2000 + 3000;
-            let start = null;
-            let duration = 4000;
-
-            function animar(timestamp) {
-                if (!start) start = timestamp;
-                let progress = timestamp - start;
-                let easeOut = 1 - Math.pow(1 - Math.min(progress / duration, 1), 3);
-                let currentRot = currentAngle + easeOut * spinAngleValue;
-
-                dibujarRuleta(currentRot);
-                playBeep(800, 0.05, 'square');
-
-                if (progress < duration) {
-                    requestAnimationFrame(animar);
-                } else {
-                    currentAngle = currentRot % (2 * Math.PI);
-                    isSpinning = false;
-                    
-                    const arc = (2 * Math.PI) / premios.length;
-                    const normalizedAngle
+                ctx.begin
