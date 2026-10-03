@@ -278,7 +278,6 @@
     </main>
 
     <script>
-        // --- OPCIONES EXACTAS DE LA RULETA SOLICITADAS ---
         const premios = [
             { texto: "Sexting", color: "#ff2a85", tipo: "premio" },
             { texto: "Videollamadas 5min", color: "#9d00ff", tipo: "premio" },
@@ -293,14 +292,12 @@
             { texto: "Nada", color: "#222222", tipo: "pierde" }
         ];
 
-        // --- ENLACE A TU PRIVADO EN TELEGRAM ---
         const telegramLink = "https://t.me/TRoxyVenomT";
 
         let isSpinning = false;
         let audioCtx = null;
         let ruletaActivada = false;
 
-        // --- ACTIVAR RULETA CON EL PIN 1712 ---
         function activarRuleta() {
             const pin = document.getElementById('userPinInput').value.trim();
             if (pin === "1712") {
@@ -318,7 +315,6 @@
             }
         }
 
-        // --- EFECTOS DE SONIDO SINTÉTICOS ---
         function initAudio() {
             if (!audioCtx) {
                 audioCtx = new (window.AudioContext || window.webkitAudioContext)();
@@ -352,7 +348,6 @@
             setTimeout(() => playBeep(220, 0.4, 'sawtooth'), 200);
         }
 
-        // --- CONFIGURACIÓN DE LA RULETA ---
         const canvas = document.getElementById('wheelCanvas');
         const ctx = canvas.getContext('2d');
         const radius = canvas.width / 2;
@@ -379,13 +374,11 @@
                 ctx.rotate(angle + arc / 2);
                 ctx.textAlign = "right";
                 ctx.fillStyle = "#ffffff";
-                // Ajuste del texto para que entre bien
                 ctx.font = "bold 10px 'Rajdhani', sans-serif";
                 ctx.fillText(premio.texto, radius - 15, 4);
                 ctx.restore();
             });
 
-            // Centro negro
             ctx.beginPath();
             ctx.arc(radius, radius, 18, 0, 2 * Math.PI);
             ctx.fillStyle = '#0a060f';
@@ -425,8 +418,11 @@
                     document.getElementById('spinBtn').disabled = false;
                     
                     const arc = (2 * Math.PI) / premios.length;
-                    const normalizedAngle = (2 * Math.PI - (currentAngle % (2 * Math.PI)) + Math.PI / 2) % (2 * Math.PI);
-                    const index = Math.floor(normalizedAngle / arc) % premios.length;
+                    
+                    // --- CORRECCIÓN MATEMÁTICA: Detectar correctamente qué hay debajo de la flecha superior (270 grados) ---
+                    const pointerAngle = 3 * Math.PI / 2; 
+                    const relativeAngle = (pointerAngle - currentAngle + 2 * Math.PI) % (2 * Math.PI);
+                    const index = Math.floor(relativeAngle / arc);
                     const ganado = premios[index];
 
                     resultBox.style.display = 'block';
