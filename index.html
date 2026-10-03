@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ruleta Casino VIP | Edición Exclusiva</title>
+    <title>Ruleta Casino VIP | VEN Y GANA CONMIGO PAPI | Exclusiva</title>
     <!-- Fuentes de Google -->
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Rajdhani:wght@500;700&display=swap" rel="stylesheet">
     <style>
@@ -135,7 +135,6 @@
             font-size: 1.1rem;
         }
 
-        /* Ruleta Canvas Container */
         .wheel-container {
             position: relative;
             width: 300px;
@@ -195,7 +194,6 @@
             transform: none;
         }
 
-        /* Formularios y Modales */
         .input-group {
             margin-bottom: 15px;
             text-align: left;
@@ -293,7 +291,6 @@
     </header>
 
     <main>
-        <!-- Tarjeta Principal de la Ruleta -->
         <div class="card">
             <div class="status-bar">
                 <div class="stat-item">Cédula: <span id="lblCedula">No registrada</span></div>
@@ -384,7 +381,6 @@
     </div>
 
     <script>
-        // --- CONFIGURACIÓN DE LA RULETA (Servicios Fijos Permitidos) ---
         const premios = [
             { texto: "Pack Express", color: "#9d00ff" },
             { texto: "Videollamada 5m", color: "#ff2a85" },
@@ -401,7 +397,6 @@
         let isMusicPlaying = false;
         let musicInterval = null;
 
-        // Base de Datos Local Simulada en Memoria (Sincronizada con localStorage)
         function getDb() {
             let db = JSON.parse(localStorage.getItem('casino_db')) || { users: {}, payments: [] };
             return db;
@@ -411,7 +406,6 @@
             localStorage.setItem('casino_db', JSON.stringify(db));
         }
 
-        // --- GESTIÓN DE SESIÓN ---
         function registrarSesion() {
             const cedula = document.getElementById('userCedulaInput').value.trim().toUpperCase();
             if (!cedula) {
@@ -445,7 +439,6 @@
             }
         }
 
-        // --- AUDIO SINTETIZADOR (Web Audio API - Sin archivos externos) ---
         function initAudio() {
             if (!audioCtx) {
                 audioCtx = new (window.AudioContext || window.webkitAudioContext)();
@@ -477,7 +470,6 @@
                 btn.style.borderColor = 'var(--neon-pink)';
                 btn.style.background = 'var(--neon-pink)';
                 btn.style.color = 'white';
-                // Secuencia ambiental cyberpunk suave en bucle
                 const notas = [220, 246.94, 261.63, 329.63, 392.00];
                 musicInterval = setInterval(() => {
                     if(!isMusicPlaying) return;
@@ -504,7 +496,6 @@
             setTimeout(() => playBeep(220, 0.4, 'sawtooth'), 200);
         }
 
-        // --- RENDERIZADO DE LA RULETA EN CANVAS ---
         const canvas = document.getElementById('wheelCanvas');
         const ctx = canvas.getContext('2d');
         const radius = canvas.width / 2;
@@ -526,7 +517,6 @@
                 ctx.lineWidth = 2;
                 ctx.stroke();
 
-                // Texto
                 ctx.save();
                 ctx.translate(radius, radius);
                 ctx.rotate(angle + arc / 2);
@@ -537,7 +527,6 @@
                 ctx.restore();
             });
 
-            // Centro de la ruleta
             ctx.beginPath();
             ctx.arc(radius, radius, 18, 0, 2 * Math.PI);
             ctx.fillStyle = '#0a060f';
@@ -547,7 +536,6 @@
             ctx.stroke();
         }
 
-        // --- LÓGICA DE GIRO ---
         function girarRuleta() {
             if (isSpinning || !currentUser || userTiros <= 0) return;
             
@@ -562,9 +550,24 @@
             const resultBox = document.getElementById('resultBox');
             resultBox.style.display = 'none';
 
-            let spinAngleValue = Math.random() * 2000 + 3000; // Rotación aleatoria fuerte
+            let spinAngleValue = Math.random() * 2000 + 3000;
             let start = null;
-            let duration = 4000; // 4 segundos
+            let duration = 4000;
 
             function animar(timestamp) {
                 if (!start) start = timestamp;
+                let progress = timestamp - start;
+                let easeOut = 1 - Math.pow(1 - Math.min(progress / duration, 1), 3);
+                let currentRot = currentAngle + easeOut * spinAngleValue;
+
+                dibujarRuleta(currentRot);
+                playBeep(800, 0.05, 'square');
+
+                if (progress < duration) {
+                    requestAnimationFrame(animar);
+                } else {
+                    currentAngle = currentRot % (2 * Math.PI);
+                    isSpinning = false;
+                    
+                    const arc = (2 * Math.PI) / premios.length;
+                    const normalizedAngle
