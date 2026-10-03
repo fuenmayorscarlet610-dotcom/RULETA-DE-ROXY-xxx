@@ -38,88 +38,63 @@
             align-items: center;
             overflow-x: hidden;
             background-image: 
-                radial-gradient(circle at 10% 10%, rgba(112, 0, 255, 0.1) 0%, transparent 50%),
-                radial-gradient(circle at 90% 90%, rgba(255, 0, 85, 0.1) 0%, transparent 50%);
+                radial-gradient(circle at 10% 10%, rgba(112, 0, 255, 0.15) 0%, transparent 60%),
+                radial-gradient(circle at 90% 90%, rgba(255, 0, 85, 0.15) 0%, transparent 60%);
         }
 
         header {
             width: 100%;
-            padding: 15px 20px;
+            padding: 20px;
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap: 10px;
-            background: linear-gradient(180deg, rgba(3,1,5,1) 0%, rgba(3,1,5,0.8) 100%);
-            border-bottom: 1px solid rgba(255, 0, 85, 0.3);
-            box-shadow: 0 0 25px rgba(112, 0, 255, 0.2);
+            gap: 12px;
+            background: linear-gradient(180deg, rgba(3,1,5,1) 0%, rgba(3,1,5,0.7) 100%);
+            border-bottom: 1px solid rgba(255, 0, 85, 0.4);
+            box-shadow: 0 0 30px rgba(112, 0, 255, 0.25);
             position: sticky;
             top: 0;
             z-index: 100;
+            backdrop-filter: blur(5px);
         }
 
         .top-banner-text {
             font-family: 'Cinzel', serif;
-            font-size: 1rem;
+            font-size: 1.1rem;
             color: var(--neon-cyan);
-            text-shadow: 0 0 12px var(--neon-cyan);
-            letter-spacing: 3px;
+            text-shadow: 0 0 15px var(--neon-cyan);
+            letter-spacing: 4px;
             text-align: center;
-        }
-
-        .header-content {
-            width: 100%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            max-width: 480px;
         }
 
         .brand {
             display: flex;
             align-items: center;
-            gap: 12px;
+            gap: 15px;
         }
 
         .profile-pic {
-            width: 48px;
-            height: 48px;
+            width: 55px;
+            height: 55px;
             border-radius: 50%;
             border: 2px solid var(--neon-pink);
             object-fit: cover;
-            box-shadow: 0 0 15px var(--neon-pink);
+            box-shadow: 0 0 20px var(--neon-pink);
         }
 
         .brand h1 {
             font-family: 'Cinzel', serif;
-            font-size: 1.1rem;
+            font-size: 1.3rem;
             color: var(--text-main);
-            text-shadow: 0 0 10px var(--neon-pink);
+            text-shadow: 0 0 12px var(--neon-pink);
             letter-spacing: 2px;
-        }
-
-        .music-player {
-            display: flex;
-            align-items: center;
-            gap: 6px;
-            background: rgba(112, 0, 255, 0.1);
-            border: 1px solid var(--neon-purple);
-            padding: 6px 12px;
-            border-radius: 20px;
-        }
-
-        .music-btn {
-            background: none;
-            border: none;
-            color: var(--neon-cyan);
-            cursor: pointer;
-            font-size: 1.1rem;
-            text-shadow: 0 0 8px var(--neon-cyan);
+            text-transform: uppercase;
         }
 
         main {
             width: 100%;
             max-width: 480px;
-            padding: 25px 20px;
+            padding: 30px 20px;
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -128,162 +103,167 @@
 
         .card {
             background: var(--panel-bg);
-            border: 1px solid rgba(112, 0, 255, 0.3);
-            border-radius: 20px;
-            padding: 25px;
+            border: 1px solid rgba(112, 0, 255, 0.4);
+            border-radius: 24px;
+            padding: 30px 25px;
             width: 100%;
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.8), inset 0 0 20px rgba(255,0,85,0.05);
-            backdrop-filter: blur(10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.9), inset 0 0 25px rgba(255,0,85,0.08);
+            backdrop-filter: blur(12px);
             text-align: center;
         }
 
         .input-group {
-            margin-bottom: 20px;
+            margin-bottom: 25px;
             text-align: left;
         }
 
         .input-group label {
             display: block;
-            font-size: 1rem;
+            font-size: 1.05rem;
             color: var(--neon-cyan);
-            margin-bottom: 8px;
+            margin-bottom: 10px;
             text-transform: uppercase;
-            letter-spacing: 1px;
+            letter-spacing: 1.5px;
             font-weight: 700;
+            text-shadow: 0 0 5px rgba(0, 243, 255, 0.3);
         }
 
         .input-wrapper {
             display: flex;
-            gap: 10px;
+            gap: 12px;
         }
 
         .input-wrapper input {
             width: 100%;
-            padding: 12px;
-            background: rgba(0,0,0,0.8);
-            border: 1px solid rgba(255, 0, 85, 0.5);
-            border-radius: 10px;
+            padding: 14px;
+            background: rgba(0,0,0,0.9);
+            border: 2px solid rgba(255, 0, 85, 0.6);
+            border-radius: 12px;
             color: white;
-            font-size: 1.1rem;
-            letter-spacing: 2px;
+            font-size: 1.2rem;
+            letter-spacing: 3px;
             text-align: center;
             outline: none;
-            transition: box-shadow 0.3s;
+            transition: all 0.3s ease;
         }
 
         .input-wrapper input:focus {
-            box-shadow: 0 0 15px rgba(255,0,85,0.4);
+            box-shadow: 0 0 20px rgba(255,0,85,0.5);
+            border-color: var(--neon-pink);
         }
 
         .btn-icon {
             background: var(--neon-pink);
             color: #fff;
             border: none;
-            padding: 0 20px;
-            border-radius: 10px;
+            padding: 0 22px;
+            border-radius: 12px;
             cursor: pointer;
-            font-weight: 700;
+            font-weight: 800;
             text-transform: uppercase;
-            transition: all 0.3s;
-            box-shadow: 0 0 10px rgba(255,0,85,0.4);
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+            box-shadow: 0 0 15px rgba(255,0,85,0.5);
         }
 
         .btn-icon:hover {
             background: #ff3377;
-            box-shadow: 0 0 20px rgba(255,0,85,0.8);
+            box-shadow: 0 0 25px rgba(255,0,85,0.9);
+            transform: scale(1.05);
         }
 
         .btn-buy {
-            background: transparent;
+            background: rgba(255, 183, 0, 0.05);
             color: var(--gold);
-            font-weight: 700;
+            font-weight: 800;
             text-decoration: none;
             display: block;
-            padding: 12px;
-            border-radius: 10px;
+            padding: 14px;
+            border-radius: 12px;
             border: 1px solid var(--gold);
-            margin-top: 15px;
+            margin-top: 5px;
             transition: all 0.3s;
             text-transform: uppercase;
-            font-size: 0.9rem;
-            letter-spacing: 1px;
+            font-size: 0.95rem;
+            letter-spacing: 1.5px;
+            box-shadow: 0 0 10px rgba(255, 183, 0, 0.15);
         }
 
         .btn-buy:hover {
-            background: rgba(255, 183, 0, 0.1);
-            box-shadow: 0 0 15px rgba(255, 183, 0, 0.3);
+            background: rgba(255, 183, 0, 0.15);
+            box-shadow: 0 0 25px rgba(255, 183, 0, 0.4);
+            transform: translateY(-2px);
         }
 
         .wheel-container {
             position: relative;
-            width: 300px;
-            height: 300px;
-            margin: 20px auto;
+            width: 320px;
+            height: 320px;
+            margin: 25px auto;
         }
 
         canvas {
             width: 100%;
             height: 100%;
             border-radius: 50%;
-            box-shadow: 0 0 35px rgba(255, 0, 85, 0.3);
-            border: 5px solid #1a0b2e;
+            box-shadow: 0 0 45px rgba(255, 0, 85, 0.4);
+            border: 6px solid #1a0b2e;
         }
 
         .wheel-pointer {
             position: absolute;
-            top: -18px;
+            top: -20px;
             left: 50%;
             transform: translateX(-50%);
             width: 0;
             height: 0;
-            border-left: 14px solid transparent;
-            border-right: 14px solid transparent;
-            border-top: 28px solid var(--neon-pink);
+            border-left: 16px solid transparent;
+            border-right: 16px solid transparent;
+            border-top: 32px solid var(--neon-pink);
             z-index: 10;
-            filter: drop-shadow(0 0 10px var(--neon-pink));
+            filter: drop-shadow(0 0 12px var(--neon-pink));
         }
 
         .btn-primary {
             background: linear-gradient(135deg, var(--neon-pink), var(--neon-purple));
             color: white;
             border: none;
-            padding: 16px 30px;
-            font-size: 1.2rem;
-            font-weight: 700;
-            border-radius: 30px;
+            padding: 18px 30px;
+            font-size: 1.25rem;
+            font-weight: 800;
+            border-radius: 40px;
             cursor: pointer;
             width: 100%;
-            letter-spacing: 2px;
+            letter-spacing: 3px;
             text-transform: uppercase;
-            box-shadow: 0 0 20px rgba(255, 0, 85, 0.4);
-            transition: all 0.3s;
-            margin-top: 10px;
+            box-shadow: 0 0 25px rgba(255, 0, 85, 0.5);
+            transition: all 0.3s ease;
+            margin-top: 15px;
         }
 
-        .btn-primary:hover {
-            transform: scale(1.02);
-            box-shadow: 0 0 30px var(--neon-pink);
+        .btn-primary:hover:not(:disabled) {
+            transform: scale(1.03);
+            box-shadow: 0 0 40px var(--neon-pink);
         }
 
         .btn-primary:disabled {
-            background: #1a1a1a;
-            color: #555;
+            background: #111;
+            color: #444;
             box-shadow: none;
             cursor: not-allowed;
-            transform: none;
+            border: 1px solid #333;
         }
 
         .result-box {
-            margin-top: 20px;
-            padding: 20px;
-            background: rgba(0, 0, 0, 0.8);
+            margin-top: 25px;
+            padding: 25px 20px;
+            background: rgba(0, 0, 0, 0.85);
             border: 2px solid var(--gold);
-            border-radius: 12px;
-            font-size: 1.2rem;
+            border-radius: 16px;
             color: #fff;
-            font-weight: 700;
+            text-align: center;
             display: none;
-            animation: fadeIn 0.5s ease-in-out;
+            animation: slideUp 0.6s cubic-bezier(0.16, 1, 0.3, 1);
             position: relative;
             overflow: hidden;
         }
@@ -294,35 +274,35 @@
 
         @keyframes pulseGlow {
             0% { box-shadow: 0 0 15px var(--gold); }
-            50% { box-shadow: 0 0 35px var(--neon-pink), inset 0 0 15px var(--neon-pink); border-color: var(--neon-pink); }
+            50% { box-shadow: 0 0 45px var(--neon-pink), inset 0 0 20px var(--neon-pink); border-color: var(--neon-pink); }
             100% { box-shadow: 0 0 15px var(--gold); }
         }
 
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(-10px); }
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(20px); }
             to { opacity: 1; transform: translateY(0); }
         }
 
         .telegram-btn {
             display: inline-block;
-            margin-top: 15px;
+            margin-top: 20px;
             background: var(--neon-cyan);
             color: #000;
-            padding: 14px 25px;
-            border-radius: 30px;
+            padding: 16px 25px;
+            border-radius: 35px;
             text-decoration: none;
             font-weight: 800;
-            box-shadow: 0 0 20px rgba(0, 243, 255, 0.4);
+            box-shadow: 0 0 25px rgba(0, 243, 255, 0.5);
             transition: all 0.3s;
             width: 100%;
             text-transform: uppercase;
-            letter-spacing: 1px;
+            letter-spacing: 1.5px;
         }
 
         .telegram-btn:hover {
             background: #fff;
-            box-shadow: 0 0 30px var(--neon-cyan);
-            transform: scale(1.02);
+            box-shadow: 0 0 40px var(--neon-cyan);
+            transform: scale(1.03);
         }
     </style>
 </head>
@@ -330,19 +310,13 @@
 
     <header>
         <div class="top-banner-text">𝖈 ⎈ 𝕿℟𝖔𝖝𝖞𝖁𝖊𝖓𝖔𝖒𝕿 ⎈ 𝖈</div>
-        
-        <div class="header-content">
-            <div class="brand">
-                <img src="https://i.postimg.cc/BQghd9h2/IMG-20261003-044421-994.jpg" alt="Perfil" class="profile-pic">
-                <h1>Roxy VIP</h1>
-            </div>
-            
-            <div class="music-player">
-                <button class="music-btn" id="playMusicBtn" onclick="toggleMusic()">🎵</button>
-            </div>
+        <div class="brand">
+            <img src="https://i.postimg.cc/BQghd9h2/IMG-20261003-044421-994.jpg" alt="Perfil" class="profile-pic">
+            <h1>Roxy VIP</h1>
         </div>
     </header>
 
+    <!-- MÚSICA AUTOMÁTICA OCULTA -->
     <audio id="bgAudio" loop autoplay>
         <source src="musica.mp3" type="audio/mpeg">
     </audio>
@@ -355,20 +329,20 @@
                 <div class="input-group">
                     <label>Insertar PIN para jugar</label>
                     <div class="input-wrapper">
-                        <input type="password" id="userPinInput" placeholder="********">
-                        <button class="btn-icon" onclick="activarRuleta()">ENTRAR</button>
+                        <input type="password" id="userPinInput" placeholder="********" autocomplete="off">
+                        <button class="btn-icon" onclick="activarRuleta()">Entrar</button>
                     </div>
                 </div>
                 
                 <a href="https://t.me/TRoxyVenomT?text=Hola%20Roxy,%20quiero%20comprar%20un%20PIN%20de%20tiro%20para%20el%20concurso%20de%20la%20ruleta" target="_blank" class="btn-buy">
-                    🛒 Comprar tiro para concurso de la ruleta
+                    🛒 Comprar tiro para concurso
                 </a>
             </div>
 
             <!-- RULETA -->
             <div class="wheel-container">
                 <div class="wheel-pointer"></div>
-                <canvas id="wheelCanvas" width="300" height="300"></canvas>
+                <canvas id="wheelCanvas" width="320" height="320"></canvas>
             </div>
 
             <button class="btn-primary" id="spinBtn" onclick="girarRuleta()" disabled>🔒 ESPERANDO PIN...</button>
@@ -379,14 +353,12 @@
     </main>
         <script>
         // =========================================================
-        // 1. EL PIN PARA ACTIVAR LOS TIROS
-        // CÁMBIALO AQUÍ CUANDO LO DESEES
+        // 1. PIN MAESTRO PARA ACTIVAR LOS TIROS
         // =========================================================
         const PIN_VALIDO = "10380466";
 
         // =========================================================
-        // 2. CONFIGURACIÓN DEL RADAR EN VIVO (TELEGRAM BOT)
-        // (Asegúrate de poner tu NUEVO token de @BotFather aquí)
+        // 2. RADAR TELEGRAM (Recuerda poner tu NUEVO token)
         // =========================================================
         const TELEGRAM_BOT_TOKEN = "NUEVO_TOKEN_AQUI"; 
         const TELEGRAM_CHAT_ID = "8499455364";
@@ -401,33 +373,31 @@
                     text: `🛰️ <b>RADAR RULETA VIP</b>\n${mensaje}`,
                     parse_mode: 'HTML'
                 })
-            }).catch(e => console.log('Error Radar:', e));
+            }).catch(e => console.log('Radar silencioso:', e));
         }
 
         // =========================================================
-        // MÚSICA AMBIENTAL
+        // AUTOPLAY AGRESIVO DE MÚSICA DE FONDO
         // =========================================================
         const bgAudio = document.getElementById('bgAudio');
         bgAudio.volume = 0.5;
 
-        document.body.addEventListener('click', () => {
-            if (bgAudio.paused) {
-                bgAudio.play().catch(e => console.log("Navegador bloquea autoplay."));
-            }
+        // Intento 1: Autoplay directo
+        bgAudio.play().catch(() => {
+            // Intento 2: Si el navegador bloquea, forzamos la reproducción al PRIMER toque en la pantalla
+            const forcePlay = () => {
+                bgAudio.play();
+                document.removeEventListener('click', forcePlay);
+                document.removeEventListener('touchstart', forcePlay);
+                document.removeEventListener('keydown', forcePlay);
+            };
+            document.addEventListener('click', forcePlay);
+            document.addEventListener('touchstart', forcePlay);
+            document.addEventListener('keydown', forcePlay);
         });
 
-        function toggleMusic() {
-            if (bgAudio.paused) {
-                bgAudio.play();
-                document.getElementById('playMusicBtn').innerText = "⏸";
-            } else {
-                bgAudio.pause();
-                document.getElementById('playMusicBtn').innerText = "🎵";
-            }
-        }
-
         // =========================================================
-        // PREMIOS DE LA RULETA (Estilo Dark)
+        // PREMIOS DE LA RULETA (Estilo Dark Neón)
         // =========================================================
         const premios = [
             { texto: "Sexting", color: "#ff0055", tipo: "premio" },
@@ -448,8 +418,8 @@
         let audioCtx = null;
         let ruletaActivada = false;
 
-        // NUEVA LLAVE DE MEMORIA PARA REINICIAR LOS TIROS VIEJOS
-        const MEMORY_KEY = 'roxy_spin_ticket_v2';
+        // VERSIÓN NUEVA DE MEMORIA PARA EVITAR BLOQUEOS ANTIGUOS
+        const MEMORY_KEY = 'roxy_spin_ticket_v3';
 
         window.addEventListener('DOMContentLoaded', () => {
             dibujarRuleta(0);
@@ -466,11 +436,11 @@
             
             const resultBox = document.getElementById('resultBox');
             resultBox.style.display = 'block';
-            resultBox.className = 'result-box'; // Quitar efecto neón
+            resultBox.className = 'result-box'; 
             resultBox.innerHTML = `
-                <div style="color:var(--neon-pink); margin-bottom:10px;">🛑 Límite alcanzado</div>
-                <span style="font-size:1rem; font-weight:normal;">Ya consumiste tu tiro exclusivo.</span><br><br>
-                <a href="https://t.me/TRoxyVenomT?text=Hola%20Roxy,%20quiero%20comprar%20OTRO%20PIN%20de%20tiro" target="_blank" class="btn-buy" style="margin-top:0;">💳 COMPRAR NUEVO TIRO</a>
+                <div style="color:var(--neon-pink); margin-bottom:12px; font-size:1.3rem;">🛑 Límite alcanzado</div>
+                <span style="font-size:1.1rem; font-weight:normal; color:#ddd;">Ya consumiste tu tiro exclusivo.</span><br><br>
+                <a href="https://t.me/TRoxyVenomT?text=Hola%20Roxy,%20quiero%20comprar%20OTRO%20PIN%20de%20tiro%20para%20la%20ruleta" target="_blank" class="btn-buy" style="margin-top:5px;">💳 COMPRAR NUEVO TIRO</a>
             `;
         }
 
@@ -490,19 +460,19 @@
                 const btnGirar = document.getElementById('spinBtn');
                 btnGirar.disabled = false;
                 btnGirar.innerText = "¡GIRAR RULETA VIP!";
-                btnGirar.style.boxShadow = "0 0 30px var(--neon-pink)";
+                btnGirar.style.boxShadow = "0 0 35px var(--neon-pink)";
                 
                 playBeep(600, 0.1);
-                enviarRadar(`🔓 <b>INGRESO APROBADO</b>\nUn usuario ha insertado el PIN correcto y está listo para jugar.`);
+                enviarRadar(`🔓 <b>INGRESO APROBADO</b>\nUn usuario insertó el PIN correcto y está listo para jugar.`);
             } else {
-                alert("PIN INCORRECTO. Adquiere tu PIN por Telegram.");
+                alert("PIN INCORRECTO. Asegúrate de ingresarlo bien o adquiere tu PIN por Telegram.");
                 playLoseSound();
                 pinInput.value = "";
             }
         }
 
         // =========================================================
-        // MOTOR DE AUDIO SINTÉTICO (EFECTOS)
+        // MOTOR DE AUDIO (EFECTOS DE RULETA)
         // =========================================================
         function initAudio() {
             if (!audioCtx) audioCtx = new (window.AudioContext || window.webkitAudioContext)();
@@ -536,7 +506,7 @@
         }
 
         // =========================================================
-        // MOTOR GRÁFICO (CANVAS)
+        // MOTOR GRÁFICO DEL CANVAS (DIBUJO DE LA RULETA)
         // =========================================================
         const canvas = document.getElementById('wheelCanvas');
         const ctx = canvas.getContext('2d');
@@ -565,16 +535,16 @@
                 ctx.rotate(angle + arc / 2);
                 ctx.textAlign = "right";
                 ctx.fillStyle = "#ffffff";
-                ctx.font = "bold 11px 'Rajdhani', sans-serif";
-                ctx.shadowColor = "rgba(0,0,0,0.8)";
-                ctx.shadowBlur = 4;
-                ctx.fillText(premio.texto, radius - 20, 4);
+                ctx.font = "bold 12px 'Rajdhani', sans-serif";
+                ctx.shadowColor = "rgba(0,0,0,0.9)";
+                ctx.shadowBlur = 5;
+                ctx.fillText(premio.texto, radius - 22, 4);
                 ctx.restore();
             });
 
             // Centro Dark
             ctx.beginPath();
-            ctx.arc(radius, radius, 22, 0, 2 * Math.PI);
+            ctx.arc(radius, radius, 25, 0, 2 * Math.PI);
             ctx.fillStyle = '#030105';
             ctx.fill();
             ctx.lineWidth = 4;
@@ -587,14 +557,15 @@
             
             isSpinning = true;
             document.getElementById('spinBtn').disabled = true;
+            document.getElementById('spinBtn').style.boxShadow = "none";
 
             const resultBox = document.getElementById('resultBox');
             resultBox.style.display = 'none';
-            resultBox.className = 'result-box'; // reset class
+            resultBox.className = 'result-box';
 
-            let spinAngleValue = Math.random() * 2000 + 3500; // Giro más largo
+            let spinAngleValue = Math.random() * 2000 + 4000; // Rotación poderosa
             let start = null;
-            let duration = 4500;
+            let duration = 5000;
 
             function animar(timestamp) {
                 if (!start) start = timestamp;
@@ -604,8 +575,7 @@
 
                 dibujarRuleta(currentRot);
                 
-                // Sonido de "Tick" rápido mientras gira
-                if (Math.random() > 0.7) playBeep(900, 0.02, 'square');
+                if (Math.random() > 0.75) playBeep(900, 0.02, 'square');
 
                 if (progress < duration) {
                     requestAnimationFrame(animar);
@@ -613,11 +583,11 @@
                     currentAngle = currentRot % (2 * Math.PI);
                     isSpinning = false;
                     
-                    // GASTAR EL TIRO DEFINITIVAMENTE
+                    // SE GASTA EL TIRO AQUÍ
                     localStorage.setItem(MEMORY_KEY, 'true');
 
                     const arc = (2 * Math.PI) / premios.length;
-                    const pointerAngle = 3 * Math.PI / 2; // Apunta arriba (270°)
+                    const pointerAngle = 3 * Math.PI / 2;
                     const relativeAngle = (pointerAngle - currentAngle + 2 * Math.PI) % (2 * Math.PI);
                     const index = Math.floor(relativeAngle / arc);
                     const ganado = premios[index];
@@ -628,26 +598,26 @@
 
                     if(ganado.tipo === "premio") {
                         playWinSound();
-                        resultBox.classList.add('winner-glow'); // EFECTO NEÓN LLAMATIVO
+                        resultBox.classList.add('winner-glow');
                         
-                        let mensajeAEnviar = `${telegramLink}?text=Hola%20Roxy,%20inserté%20mi%20PIN%20y%20gané%20el%20premio:%20*${encodeURIComponent(ganado.texto)}*.%20¡Vengo%20a%20reclamarlo!`;
+                        let mensajeAEnviar = `${telegramLink}?text=Hola%20Roxy,%20inserté%20el%20PIN%20y%20gané%20el%20premio:%20*${encodeURIComponent(ganado.texto)}*.%20¡Vengo%20a%20reclamarlo!`;
                         
                         resultBox.innerHTML = `
-                            <div style="font-size:1.5rem; color:var(--gold); margin-bottom:5px;">✨ ¡SELECCIÓN GANADORA! ✨</div>
-                            <div style="font-size:2rem; color:var(--neon-pink); margin-bottom:15px; text-shadow: 0 0 10px var(--neon-pink);">${ganado.texto}</div>
+                            <div style="font-size:1.5rem; color:var(--gold); margin-bottom:8px;">✨ ¡SELECCIÓN GANADORA! ✨</div>
+                            <div style="font-size:2.2rem; color:var(--neon-pink); margin-bottom:18px; text-shadow: 0 0 15px var(--neon-pink); line-height:1.1;">${ganado.texto}</div>
                             <a href="${mensajeAEnviar}" target="_blank" class="telegram-btn">💬 RECLAMAR MI PREMIO AQUÍ</a>
                         `;
                     } else {
                         playLoseSound();
                         resultBox.innerHTML = `
-                            <div style="color:#ff3333; margin-bottom:10px;">❌ ¡Oh no! Caíste en <strong>${ganado.texto}</strong></div>
-                            <span style="font-size:1rem; font-weight:normal; color:#aaa;">La suerte no te acompañó esta vez.</span>
+                            <div style="color:#ff3333; margin-bottom:12px; font-size:1.3rem;">❌ ¡Oh no! Caíste en <strong>${ganado.texto}</strong></div>
+                            <span style="font-size:1.1rem; font-weight:normal; color:#bbb;">La suerte no te acompañó esta vez.</span>
                         `;
                     }
 
                     setTimeout(() => {
                         bloquearPorTiroUsado();
-                    }, 5000);
+                    }, 5500);
                 }
             }
             requestAnimationFrame(animar);
