@@ -5,22 +5,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ruleta Casino VIP | TRoxyVenomT</title>
     
-    <!-- Meta Preview al Compartir -->
     <meta property="og:title" content="Ruleta Casino VIP | TRoxyVenomT">
-    <meta property="og:description" content="¡Gira la ruleta y gana premios exclusivos! Adquiere tu tiro VIP.">
+    <meta property="og:description" content="¡Gira la ruleta y gana premios exclusivos! Concurso VIP.">
     <meta property="og:image" content="https://i.postimg.cc/BQghd9h2/IMG-20261003-044421-994.jpg">
     <meta property="og:type" content="website">
 
-    <!-- Fuentes de Google -->
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Rajdhani:wght@500;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --bg-deep: #0a060f;
-            --panel-bg: rgba(18, 12, 24, 0.95);
-            --neon-pink: #ff2a85;
-            --neon-purple: #9d00ff;
+            --bg-deep: #030105;
+            --panel-bg: rgba(10, 5, 15, 0.95);
+            --neon-pink: #ff0055;
+            --neon-purple: #7000ff;
             --neon-cyan: #00f3ff;
-            --gold: #ffd700;
+            --gold: #ffb700;
             --text-main: #f0e6f6;
         }
 
@@ -40,8 +38,8 @@
             align-items: center;
             overflow-x: hidden;
             background-image: 
-                radial-gradient(circle at 20% 20%, rgba(157, 0, 255, 0.15) 0%, transparent 40%),
-                radial-gradient(circle at 80% 80%, rgba(255, 42, 133, 0.15) 0%, transparent 40%);
+                radial-gradient(circle at 10% 10%, rgba(112, 0, 255, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 90% 90%, rgba(255, 0, 85, 0.1) 0%, transparent 50%);
         }
 
         header {
@@ -50,10 +48,10 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap: 8px;
-            background: rgba(10, 6, 15, 0.95);
-            border-bottom: 1px solid rgba(255, 42, 133, 0.3);
-            box-shadow: 0 0 20px rgba(157, 0, 255, 0.2);
+            gap: 10px;
+            background: linear-gradient(180deg, rgba(3,1,5,1) 0%, rgba(3,1,5,0.8) 100%);
+            border-bottom: 1px solid rgba(255, 0, 85, 0.3);
+            box-shadow: 0 0 25px rgba(112, 0, 255, 0.2);
             position: sticky;
             top: 0;
             z-index: 100;
@@ -61,10 +59,10 @@
 
         .top-banner-text {
             font-family: 'Cinzel', serif;
-            font-size: 0.95rem;
+            font-size: 1rem;
             color: var(--neon-cyan);
-            text-shadow: 0 0 10px var(--neon-cyan);
-            letter-spacing: 2px;
+            text-shadow: 0 0 12px var(--neon-cyan);
+            letter-spacing: 3px;
             text-align: center;
         }
 
@@ -73,6 +71,7 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
+            max-width: 480px;
         }
 
         .brand {
@@ -82,26 +81,45 @@
         }
 
         .profile-pic {
-            width: 45px;
-            height: 45px;
+            width: 48px;
+            height: 48px;
             border-radius: 50%;
             border: 2px solid var(--neon-pink);
             object-fit: cover;
-            box-shadow: 0 0 10px var(--neon-pink);
+            box-shadow: 0 0 15px var(--neon-pink);
         }
 
         .brand h1 {
             font-family: 'Cinzel', serif;
-            font-size: 1rem;
+            font-size: 1.1rem;
             color: var(--text-main);
             text-shadow: 0 0 10px var(--neon-pink);
-            letter-spacing: 1px;
+            letter-spacing: 2px;
+        }
+
+        .music-player {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            background: rgba(112, 0, 255, 0.1);
+            border: 1px solid var(--neon-purple);
+            padding: 6px 12px;
+            border-radius: 20px;
+        }
+
+        .music-btn {
+            background: none;
+            border: none;
+            color: var(--neon-cyan);
+            cursor: pointer;
+            font-size: 1.1rem;
+            text-shadow: 0 0 8px var(--neon-cyan);
         }
 
         main {
             width: 100%;
             max-width: 480px;
-            padding: 20px;
+            padding: 25px 20px;
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -110,72 +128,134 @@
 
         .card {
             background: var(--panel-bg);
-            border: 1px solid rgba(157, 0, 255, 0.4);
-            border-radius: 16px;
-            padding: 20px;
+            border: 1px solid rgba(112, 0, 255, 0.3);
+            border-radius: 20px;
+            padding: 25px;
             width: 100%;
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.6);
-            backdrop-filter: blur(8px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.8), inset 0 0 20px rgba(255,0,85,0.05);
+            backdrop-filter: blur(10px);
             text-align: center;
         }
 
-        .notice-banner {
-            background: rgba(255, 42, 133, 0.15);
-            border: 1px solid var(--neon-pink);
-            border-radius: 10px;
-            padding: 12px;
-            margin-bottom: 15px;
-            font-size: 0.95rem;
-            color: #fff;
-            line-height: 1.4;
+        .input-group {
+            margin-bottom: 20px;
+            text-align: left;
         }
 
-        .notice-banner strong {
+        .input-group label {
+            display: block;
+            font-size: 1rem;
             color: var(--neon-cyan);
+            margin-bottom: 8px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 700;
+        }
+
+        .input-wrapper {
+            display: flex;
+            gap: 10px;
+        }
+
+        .input-wrapper input {
+            width: 100%;
+            padding: 12px;
+            background: rgba(0,0,0,0.8);
+            border: 1px solid rgba(255, 0, 85, 0.5);
+            border-radius: 10px;
+            color: white;
+            font-size: 1.1rem;
+            letter-spacing: 2px;
+            text-align: center;
+            outline: none;
+            transition: box-shadow 0.3s;
+        }
+
+        .input-wrapper input:focus {
+            box-shadow: 0 0 15px rgba(255,0,85,0.4);
+        }
+
+        .btn-icon {
+            background: var(--neon-pink);
+            color: #fff;
+            border: none;
+            padding: 0 20px;
+            border-radius: 10px;
+            cursor: pointer;
+            font-weight: 700;
+            text-transform: uppercase;
+            transition: all 0.3s;
+            box-shadow: 0 0 10px rgba(255,0,85,0.4);
+        }
+
+        .btn-icon:hover {
+            background: #ff3377;
+            box-shadow: 0 0 20px rgba(255,0,85,0.8);
+        }
+
+        .btn-buy {
+            background: transparent;
+            color: var(--gold);
+            font-weight: 700;
+            text-decoration: none;
+            display: block;
+            padding: 12px;
+            border-radius: 10px;
+            border: 1px solid var(--gold);
+            margin-top: 15px;
+            transition: all 0.3s;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+        }
+
+        .btn-buy:hover {
+            background: rgba(255, 183, 0, 0.1);
+            box-shadow: 0 0 15px rgba(255, 183, 0, 0.3);
         }
 
         .wheel-container {
             position: relative;
             width: 300px;
             height: 300px;
-            margin: 10px auto;
+            margin: 20px auto;
         }
 
         canvas {
             width: 100%;
             height: 100%;
             border-radius: 50%;
-            box-shadow: 0 0 25px rgba(255, 42, 133, 0.5);
-            border: 4px solid var(--neon-purple);
+            box-shadow: 0 0 35px rgba(255, 0, 85, 0.3);
+            border: 5px solid #1a0b2e;
         }
 
         .wheel-pointer {
             position: absolute;
-            top: -15px;
+            top: -18px;
             left: 50%;
             transform: translateX(-50%);
             width: 0;
             height: 0;
-            border-left: 12px solid transparent;
-            border-right: 12px solid transparent;
-            border-top: 24px solid var(--neon-pink);
+            border-left: 14px solid transparent;
+            border-right: 14px solid transparent;
+            border-top: 28px solid var(--neon-pink);
             z-index: 10;
-            filter: drop-shadow(0 0 8px var(--neon-pink));
+            filter: drop-shadow(0 0 10px var(--neon-pink));
         }
 
         .btn-primary {
             background: linear-gradient(135deg, var(--neon-pink), var(--neon-purple));
             color: white;
             border: none;
-            padding: 14px 28px;
-            font-size: 1.1rem;
+            padding: 16px 30px;
+            font-size: 1.2rem;
             font-weight: 700;
             border-radius: 30px;
             cursor: pointer;
             width: 100%;
-            letter-spacing: 1px;
+            letter-spacing: 2px;
             text-transform: uppercase;
-            box-shadow: 0 0 20px rgba(255, 42, 133, 0.5);
+            box-shadow: 0 0 20px rgba(255, 0, 85, 0.4);
             transition: all 0.3s;
             margin-top: 10px;
         }
@@ -186,58 +266,36 @@
         }
 
         .btn-primary:disabled {
-            background: #333;
-            color: #777;
+            background: #1a1a1a;
+            color: #555;
             box-shadow: none;
             cursor: not-allowed;
             transform: none;
         }
 
-        .btn-buy {
-            background: linear-gradient(135deg, #0088cc, #00f3ff);
-            color: #000;
-            font-weight: 800;
-            text-decoration: none;
-            display: block;
-            padding: 12px;
-            border-radius: 30px;
-            margin-top: 10px;
-            box-shadow: 0 0 15px rgba(0, 243, 255, 0.4);
-        }
-
-        .input-group {
-            margin-bottom: 15px;
-            text-align: left;
-        }
-
-        .input-group label {
-            display: block;
-            font-size: 0.9rem;
-            color: var(--neon-cyan);
-            margin-bottom: 5px;
-        }
-
-        .input-group input {
-            width: 100%;
-            padding: 10px;
-            background: rgba(0,0,0,0.6);
-            border: 1px solid rgba(255, 42, 133, 0.4);
-            border-radius: 8px;
-            color: white;
-            font-size: 1rem;
-        }
-
         .result-box {
-            margin-top: 15px;
-            padding: 15px;
-            background: rgba(0, 243, 255, 0.1);
-            border: 1px solid var(--neon-cyan);
-            border-radius: 8px;
-            font-size: 1.1rem;
-            color: var(--neon-cyan);
+            margin-top: 20px;
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.8);
+            border: 2px solid var(--gold);
+            border-radius: 12px;
+            font-size: 1.2rem;
+            color: #fff;
             font-weight: 700;
             display: none;
             animation: fadeIn 0.5s ease-in-out;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .winner-glow {
+            animation: pulseGlow 1.5s infinite;
+        }
+
+        @keyframes pulseGlow {
+            0% { box-shadow: 0 0 15px var(--gold); }
+            50% { box-shadow: 0 0 35px var(--neon-pink), inset 0 0 15px var(--neon-pink); border-color: var(--neon-pink); }
+            100% { box-shadow: 0 0 15px var(--gold); }
         }
 
         @keyframes fadeIn {
@@ -248,32 +306,23 @@
         .telegram-btn {
             display: inline-block;
             margin-top: 15px;
-            background: #0088cc;
-            color: white;
-            padding: 12px 25px;
+            background: var(--neon-cyan);
+            color: #000;
+            padding: 14px 25px;
             border-radius: 30px;
             text-decoration: none;
-            font-weight: 700;
-            box-shadow: 0 0 15px rgba(0, 136, 204, 0.5);
+            font-weight: 800;
+            box-shadow: 0 0 20px rgba(0, 243, 255, 0.4);
             transition: all 0.3s;
             width: 100%;
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
 
-        .btn-icon {
-            background: transparent;
-            border: 1px solid var(--neon-cyan);
-            color: var(--neon-cyan);
-            padding: 8px 12px;
-            border-radius: 8px;
-            cursor: pointer;
-            font-weight: 700;
-            transition: all 0.3s;
-            font-size: 0.85rem;
-        }
-
-        .btn-icon:hover {
-            background: var(--neon-cyan);
-            color: var(--bg-deep);
+        .telegram-btn:hover {
+            background: #fff;
+            box-shadow: 0 0 30px var(--neon-cyan);
+            transform: scale(1.02);
         }
     </style>
 </head>
@@ -287,11 +336,13 @@
                 <img src="https://i.postimg.cc/BQghd9h2/IMG-20261003-044421-994.jpg" alt="Perfil" class="profile-pic">
                 <h1>Roxy VIP</h1>
             </div>
+            
+            <div class="music-player">
+                <button class="music-btn" id="playMusicBtn" onclick="toggleMusic()">🎵</button>
+            </div>
         </div>
     </header>
 
-    <!-- AUDIO DIRECTO DESDE TU REPOSITORIO DE GITHUB -->
-    <!-- Se añade autoplay y se maneja en el script para iniciar en cuanto se interactúe -->
     <audio id="bgAudio" loop autoplay>
         <source src="musica.mp3" type="audio/mpeg">
     </audio>
@@ -299,40 +350,45 @@
     <main>
         <div class="card">
             
-            <div class="notice-banner" id="payNotice">
-                ⚠ <strong>Aviso:</strong> Para girar la ruleta debes comprar tu tiro. Cada PIN otorga <strong>1 solo tiro exclusivo</strong>.
-                <a href="https://t.me/TRoxyVenomT?text=Hola%20Roxy,%20quiero%20comprar%20un%20PIN%20de%20tiro%20para%20la%20ruleta" target="_blank" class="btn-buy">💳 COMPRAR TIRO EN TELEGRAM</a>
-            </div>
-
-            <div class="input-group" id="loginSessionBox">
-                <label>Ingresa tu PIN de tiro pagado:</label>
-                <div style="display: flex; gap: 8px;">
-                    <input type="password" id="userPinInput" placeholder="PIN de 4 dígitos">
-                    <button class="btn-icon" onclick="activarRuleta()">Activar</button>
+            <!-- CAJA DE LOGIN / COMPRA -->
+            <div id="loginSessionBox">
+                <div class="input-group">
+                    <label>Insertar PIN para jugar</label>
+                    <div class="input-wrapper">
+                        <input type="password" id="userPinInput" placeholder="********">
+                        <button class="btn-icon" onclick="activarRuleta()">ENTRAR</button>
+                    </div>
                 </div>
+                
+                <a href="https://t.me/TRoxyVenomT?text=Hola%20Roxy,%20quiero%20comprar%20un%20PIN%20de%20tiro%20para%20el%20concurso%20de%20la%20ruleta" target="_blank" class="btn-buy">
+                    🛒 Comprar tiro para concurso de la ruleta
+                </a>
             </div>
 
+            <!-- RULETA -->
             <div class="wheel-container">
                 <div class="wheel-pointer"></div>
                 <canvas id="wheelCanvas" width="300" height="300"></canvas>
             </div>
 
-            <button class="btn-primary" id="spinBtn" onclick="girarRuleta()" disabled>🔒 INGRESA TU PIN</button>
+            <button class="btn-primary" id="spinBtn" onclick="girarRuleta()" disabled>🔒 ESPERANDO PIN...</button>
 
+            <!-- RESULTADO -->
             <div class="result-box" id="resultBox"></div>
         </div>
     </main>
         <script>
         // =========================================================
-        // 1. CAMBIA AQUÍ TU PIN VÁLIDO FÁCILMENTE
+        // 1. EL PIN PARA ACTIVAR LOS TIROS
+        // CÁMBIALO AQUÍ CUANDO LO DESEES
         // =========================================================
         const PIN_VALIDO = "10380466";
 
         // =========================================================
         // 2. CONFIGURACIÓN DEL RADAR EN VIVO (TELEGRAM BOT)
-        // RECUERDA: Revoca tu token actual y pon uno nuevo aquí
+        // (Asegúrate de poner tu NUEVO token de @BotFather aquí)
         // =========================================================
-        const TELEGRAM_BOT_TOKEN = "NUEVO_TOKEN_AQUI"; // <-- ¡Ojo! Pon tu nuevo token aquí
+        const TELEGRAM_BOT_TOKEN = "NUEVO_TOKEN_AQUI"; 
         const TELEGRAM_CHAT_ID = "8499455364";
 
         function enviarRadar(mensaje) {
@@ -349,33 +405,42 @@
         }
 
         // =========================================================
-        // REPRODUCCIÓN AUTOMÁTICA DE MÚSICA
+        // MÚSICA AMBIENTAL
         // =========================================================
         const bgAudio = document.getElementById('bgAudio');
         bgAudio.volume = 0.5;
 
-        // Intentar reproducir al primer toque/interacción en la pantalla
         document.body.addEventListener('click', () => {
             if (bgAudio.paused) {
                 bgAudio.play().catch(e => console.log("Navegador bloquea autoplay."));
             }
         });
 
+        function toggleMusic() {
+            if (bgAudio.paused) {
+                bgAudio.play();
+                document.getElementById('playMusicBtn').innerText = "⏸";
+            } else {
+                bgAudio.pause();
+                document.getElementById('playMusicBtn').innerText = "🎵";
+            }
+        }
+
         // =========================================================
-        // PREMIOS DE LA RULETA
+        // PREMIOS DE LA RULETA (Estilo Dark)
         // =========================================================
         const premios = [
-            { texto: "Sexting", color: "#ff2a85", tipo: "premio" },
-            { texto: "Videollamadas 5min", color: "#9d00ff", tipo: "premio" },
-            { texto: "Presencial 35$h", color: "#ffd700", tipo: "premio" },
-            { texto: "Presencial gratuito", color: "#ff0055", tipo: "premio" },
-            { texto: "Canal VIP 1 semana", color: "#00dfc4", tipo: "premio" },
-            { texto: "Canal VIP de por vida", color: "#7928ca", tipo: "premio" },
-            { texto: "Pack de fotos", color: "#00f3ff", tipo: "premio" },
-            { texto: "Nada", color: "#444444", tipo: "pierde" },
-            { texto: "Audios ricos", color: "#ff55aa", tipo: "premio" },
-            { texto: "Vídeos", color: "#330066", tipo: "premio" },
-            { texto: "Nada", color: "#222222", tipo: "pierde" }
+            { texto: "Sexting", color: "#ff0055", tipo: "premio" },
+            { texto: "Videollamadas", color: "#7000ff", tipo: "premio" },
+            { texto: "Presencial 35$", color: "#ffb700", tipo: "premio" },
+            { texto: "Presencial Free", color: "#d90048", tipo: "premio" },
+            { texto: "VIP 1 semana", color: "#00f3ff", tipo: "premio" },
+            { texto: "VIP de por vida", color: "#5d00d6", tipo: "premio" },
+            { texto: "Pack de fotos", color: "#00b3cc", tipo: "premio" },
+            { texto: "Nada", color: "#111111", tipo: "pierde" },
+            { texto: "Audios ricos", color: "#cc0044", tipo: "premio" },
+            { texto: "Vídeos", color: "#330088", tipo: "premio" },
+            { texto: "Nada", color: "#0a0a0a", tipo: "pierde" }
         ];
 
         const telegramLink = "https://t.me/TRoxyVenomT";
@@ -383,9 +448,12 @@
         let audioCtx = null;
         let ruletaActivada = false;
 
+        // NUEVA LLAVE DE MEMORIA PARA REINICIAR LOS TIROS VIEJOS
+        const MEMORY_KEY = 'roxy_spin_ticket_v2';
+
         window.addEventListener('DOMContentLoaded', () => {
             dibujarRuleta(0);
-            if (localStorage.getItem('ruleta_tiro_usado')) {
+            if (localStorage.getItem(MEMORY_KEY)) {
                 bloquearPorTiroUsado();
             }
         });
@@ -394,16 +462,21 @@
             document.getElementById('loginSessionBox').style.display = 'none';
             const spinBtn = document.getElementById('spinBtn');
             spinBtn.disabled = true;
-            spinBtn.innerText = "❌ YA USASTE TU TIRO";
-            document.getElementById('payNotice').innerHTML = `
-                🛑 <strong>Límite alcanzado:</strong> Ya has consumido tu tiro disponible.
-                <a href="https://t.me/TRoxyVenomT?text=Hola%20Roxy,%20quiero%20comprar%20OTRO%20PIN%20de%20tiro" target="_blank" class="btn-buy">💳 COMPRAR OTRO TIRO</a>
+            spinBtn.innerText = "❌ TIRO CONSUMIDO";
+            
+            const resultBox = document.getElementById('resultBox');
+            resultBox.style.display = 'block';
+            resultBox.className = 'result-box'; // Quitar efecto neón
+            resultBox.innerHTML = `
+                <div style="color:var(--neon-pink); margin-bottom:10px;">🛑 Límite alcanzado</div>
+                <span style="font-size:1rem; font-weight:normal;">Ya consumiste tu tiro exclusivo.</span><br><br>
+                <a href="https://t.me/TRoxyVenomT?text=Hola%20Roxy,%20quiero%20comprar%20OTRO%20PIN%20de%20tiro" target="_blank" class="btn-buy" style="margin-top:0;">💳 COMPRAR NUEVO TIRO</a>
             `;
         }
 
         function activarRuleta() {
-            if (localStorage.getItem('ruleta_tiro_usado')) {
-                alert("Ya consumiste tu tiro. Debes comprar un nuevo PIN.");
+            if (localStorage.getItem(MEMORY_KEY)) {
+                bloquearPorTiroUsado();
                 return;
             }
 
@@ -416,17 +489,21 @@
                 
                 const btnGirar = document.getElementById('spinBtn');
                 btnGirar.disabled = false;
-                btnGirar.innerText = "¡GIRAR RULETA!";
+                btnGirar.innerText = "¡GIRAR RULETA VIP!";
+                btnGirar.style.boxShadow = "0 0 30px var(--neon-pink)";
                 
                 playBeep(600, 0.1);
-                enviarRadar(`🔓 <b>PIN Activado</b>\nUn usuario ha ingresado el PIN correcto y está a punto de girar.`);
+                enviarRadar(`🔓 <b>INGRESO APROBADO</b>\nUn usuario ha insertado el PIN correcto y está listo para jugar.`);
             } else {
-                alert("PIN no válido o no pagado. Compra tu PIN por Telegram.");
+                alert("PIN INCORRECTO. Adquiere tu PIN por Telegram.");
                 playLoseSound();
                 pinInput.value = "";
             }
         }
 
+        // =========================================================
+        // MOTOR DE AUDIO SINTÉTICO (EFECTOS)
+        // =========================================================
         function initAudio() {
             if (!audioCtx) audioCtx = new (window.AudioContext || window.webkitAudioContext)();
         }
@@ -450,14 +527,17 @@
 
         function playWinSound() {
             playBeep(523.25, 0.15); setTimeout(() => playBeep(659.25, 0.15), 150);
-            setTimeout(() => playBeep(783.99, 0.3), 300); setTimeout(() => playBeep(1046.50, 0.5), 450);
+            setTimeout(() => playBeep(783.99, 0.3), 300); setTimeout(() => playBeep(1046.50, 0.6), 450);
         }
 
         function playLoseSound() {
-            playBeep(300, 0.2, 'sawtooth');
-            setTimeout(() => playBeep(220, 0.4, 'sawtooth'), 200);
+            playBeep(250, 0.3, 'sawtooth');
+            setTimeout(() => playBeep(150, 0.5, 'sawtooth'), 250);
         }
 
+        // =========================================================
+        // MOTOR GRÁFICO (CANVAS)
+        // =========================================================
         const canvas = document.getElementById('wheelCanvas');
         const ctx = canvas.getContext('2d');
         const radius = canvas.width / 2;
@@ -469,14 +549,15 @@
 
             premios.forEach((premio, i) => {
                 const angle = anguloRotacion + i * arc;
+                
                 ctx.beginPath();
                 ctx.fillStyle = premio.color;
                 ctx.moveTo(radius, radius);
                 ctx.arc(radius, radius, radius - 5, angle, angle + arc, false);
                 ctx.lineTo(radius, radius);
                 ctx.fill();
-                ctx.strokeStyle = '#0a060f';
-                ctx.lineWidth = 2;
+                ctx.strokeStyle = '#030105';
+                ctx.lineWidth = 3;
                 ctx.stroke();
 
                 ctx.save();
@@ -484,17 +565,20 @@
                 ctx.rotate(angle + arc / 2);
                 ctx.textAlign = "right";
                 ctx.fillStyle = "#ffffff";
-                ctx.font = "bold 10px 'Rajdhani', sans-serif";
-                ctx.fillText(premio.texto, radius - 15, 4);
+                ctx.font = "bold 11px 'Rajdhani', sans-serif";
+                ctx.shadowColor = "rgba(0,0,0,0.8)";
+                ctx.shadowBlur = 4;
+                ctx.fillText(premio.texto, radius - 20, 4);
                 ctx.restore();
             });
 
+            // Centro Dark
             ctx.beginPath();
-            ctx.arc(radius, radius, 18, 0, 2 * Math.PI);
-            ctx.fillStyle = '#0a060f';
+            ctx.arc(radius, radius, 22, 0, 2 * Math.PI);
+            ctx.fillStyle = '#030105';
             ctx.fill();
-            ctx.lineWidth = 3;
-            ctx.strokeStyle = 'var(--neon-pink)';
+            ctx.lineWidth = 4;
+            ctx.strokeStyle = 'var(--neon-purple)';
             ctx.stroke();
         }
 
@@ -506,10 +590,11 @@
 
             const resultBox = document.getElementById('resultBox');
             resultBox.style.display = 'none';
+            resultBox.className = 'result-box'; // reset class
 
-            let spinAngleValue = Math.random() * 2000 + 3000;
+            let spinAngleValue = Math.random() * 2000 + 3500; // Giro más largo
             let start = null;
-            let duration = 4000;
+            let duration = 4500;
 
             function animar(timestamp) {
                 if (!start) start = timestamp;
@@ -518,7 +603,9 @@
                 let currentRot = currentAngle + easeOut * spinAngleValue;
 
                 dibujarRuleta(currentRot);
-                playBeep(800, 0.05, 'square');
+                
+                // Sonido de "Tick" rápido mientras gira
+                if (Math.random() > 0.7) playBeep(900, 0.02, 'square');
 
                 if (progress < duration) {
                     requestAnimationFrame(animar);
@@ -526,32 +613,41 @@
                     currentAngle = currentRot % (2 * Math.PI);
                     isSpinning = false;
                     
-                    localStorage.setItem('ruleta_tiro_usado', 'true');
+                    // GASTAR EL TIRO DEFINITIVAMENTE
+                    localStorage.setItem(MEMORY_KEY, 'true');
 
                     const arc = (2 * Math.PI) / premios.length;
-                    const pointerAngle = 3 * Math.PI / 2;
+                    const pointerAngle = 3 * Math.PI / 2; // Apunta arriba (270°)
                     const relativeAngle = (pointerAngle - currentAngle + 2 * Math.PI) % (2 * Math.PI);
                     const index = Math.floor(relativeAngle / arc);
                     const ganado = premios[index];
 
                     resultBox.style.display = 'block';
 
-                    enviarRadar(`🎯 <b>RESULTADO DEL TIRO</b>\n<b>Premio Obtenido:</b> <code>${ganado.texto}</code>`);
+                    enviarRadar(`🎯 <b>RESULTADO DEL TIRO</b>\n<b>Premio:</b> <code>${ganado.texto}</code>`);
 
                     if(ganado.tipo === "premio") {
                         playWinSound();
-                        let mensajeAEnviar = `${telegramLink}?text=Hola%20Roxy,%20us%C3%A9%20el%20PIN%20y%20gan%C3%A9:%20*${encodeURIComponent(ganado.texto)}*.%20¡Vengo%20a%20reclamar!`;
+                        resultBox.classList.add('winner-glow'); // EFECTO NEÓN LLAMATIVO
                         
-                        resultBox.innerHTML = `🎉 ¡FELICIDADES!<br>Ganaste: <strong>${ganado.texto}</strong><br>
-                        <a href="${mensajeAEnviar}" target="_blank" class="telegram-btn">💬 RECLAMAR EN MI PRIVADO</a>`;
+                        let mensajeAEnviar = `${telegramLink}?text=Hola%20Roxy,%20inserté%20mi%20PIN%20y%20gané%20el%20premio:%20*${encodeURIComponent(ganado.texto)}*.%20¡Vengo%20a%20reclamarlo!`;
+                        
+                        resultBox.innerHTML = `
+                            <div style="font-size:1.5rem; color:var(--gold); margin-bottom:5px;">✨ ¡SELECCIÓN GANADORA! ✨</div>
+                            <div style="font-size:2rem; color:var(--neon-pink); margin-bottom:15px; text-shadow: 0 0 10px var(--neon-pink);">${ganado.texto}</div>
+                            <a href="${mensajeAEnviar}" target="_blank" class="telegram-btn">💬 RECLAMAR MI PREMIO AQUÍ</a>
+                        `;
                     } else {
                         playLoseSound();
-                        resultBox.innerHTML = `❌ ¡Caíste en <strong>${ganado.texto}</strong>!<br><span style="font-size:0.95rem; color:#aaa;">Suerte para la próxima.</span>`;
+                        resultBox.innerHTML = `
+                            <div style="color:#ff3333; margin-bottom:10px;">❌ ¡Oh no! Caíste en <strong>${ganado.texto}</strong></div>
+                            <span style="font-size:1rem; font-weight:normal; color:#aaa;">La suerte no te acompañó esta vez.</span>
+                        `;
                     }
 
                     setTimeout(() => {
                         bloquearPorTiroUsado();
-                    }, 3000);
+                    }, 5000);
                 }
             }
             requestAnimationFrame(animar);
