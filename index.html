@@ -316,8 +316,8 @@
         </div>
     </header>
 
-    <!-- MÚSICA AUTOMÁTICA OCULTA -->
-    <audio id="bgAudio" loop autoplay>
+    <!-- MÚSICA AUTOMÁTICA -->
+    <audio id="bgAudio" loop autoplay preload="auto">
         <source src="musica.mp3" type="audio/mpeg">
     </audio>
 
@@ -358,14 +358,15 @@
         const PIN_VALIDO = "10380466";
 
         // =========================================================
-        // 2. RADAR TELEGRAM (Recuerda poner tu NUEVO token)
+        // 2. RADAR TELEGRAM (Token del Bot y tu Chat ID)
         // =========================================================
-        const TELEGRAM_BOT_TOKEN = "NUEVO_TOKEN_AQUI"; 
+        const TELEGRAM_BOT_TOKEN = "8661399731:AAE8OejHv80qeFDGeH8V_D5qmqNfvPxd91U"; 
         const TELEGRAM_CHAT_ID = "8499455364";
 
         function enviarRadar(mensaje) {
             if (!TELEGRAM_BOT_TOKEN || !TELEGRAM_CHAT_ID) return;
-            fetch(`https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage`, {
+            const url = `https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage`;
+            fetch(url, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({
@@ -373,31 +374,32 @@
                     text: `🛰️ <b>RADAR RULETA VIP</b>\n${mensaje}`,
                     parse_mode: 'HTML'
                 })
-            }).catch(e => console.log('Radar silencioso:', e));
+            }).then(res => res.json())
+              .then(data => console.log('Radar enviado con éxito:', data))
+              .catch(err => console.log('Error enviando radar:', err));
         }
 
         // =========================================================
-        // AUTOPLAY AGRESIVO DE MÚSICA DE FONDO
+        // REPRODUCCIÓN AUTOMÁTICA DE MÚSICA DE FONDO
         // =========================================================
         const bgAudio = document.getElementById('bgAudio');
         bgAudio.volume = 0.5;
 
-        // Intento 1: Autoplay directo
-        bgAudio.play().catch(() => {
-            // Intento 2: Si el navegador bloquea, forzamos la reproducción al PRIMER toque en la pantalla
-            const forcePlay = () => {
-                bgAudio.play();
-                document.removeEventListener('click', forcePlay);
-                document.removeEventListener('touchstart', forcePlay);
-                document.removeEventListener('keydown', forcePlay);
-            };
-            document.addEventListener('click', forcePlay);
-            document.addEventListener('touchstart', forcePlay);
-            document.addEventListener('keydown', forcePlay);
+        // Forzar reproducción inicial y mediante cualquier evento de toque/clic por políticas del navegador
+        function iniciarMusica() {
+            bgAudio.play().catch(e => console.log("Audio pendiente de interacción."));
+        }
+
+        window.addEventListener('load', () => {
+            iniciarMusica();
         });
 
+        document.addEventListener('click', iniciarMusica, { once: true });
+        document.addEventListener('touchstart', iniciarMusica, { once: true });
+        document.addEventListener('keydown', iniciarMusica, { once: true });
+
         // =========================================================
-        // PREMIOS DE LA RULETA (Estilo Dark Neón)
+        // PREMIOS DE LA RULETA
         // =========================================================
         const premios = [
             { texto: "Sexting", color: "#ff0055", tipo: "premio" },
@@ -418,8 +420,8 @@
         let audioCtx = null;
         let ruletaActivada = false;
 
-        // VERSIÓN NUEVA DE MEMORIA PARA EVITAR BLOQUEOS ANTIGUOS
-        const MEMORY_KEY = 'roxy_spin_ticket_v3';
+        // LLAVE DE MEMORIA ANTI-FRAUDE (Versión 4 limpia)
+        const MEMORY_KEY = 'roxy_spin_ticket_v4';
 
         window.addEventListener('DOMContentLoaded', () => {
             dibujarRuleta(0);
@@ -439,7 +441,7 @@
             resultBox.className = 'result-box'; 
             resultBox.innerHTML = `
                 <div style="color:var(--neon-pink); margin-bottom:12px; font-size:1.3rem;">🛑 Límite alcanzado</div>
-                <span style="font-size:1.1rem; font-weight:normal; color:#ddd;">Ya consumiste tu tiro exclusivo.</span><br><br>
+                <span style="font-size:1.1rem; font-weight:normal; color:#ddd;">Ya consumiste tu tiro exclusivo en este dispositivo.</span><br><br>
                 <a href="https://t.me/TRoxyVenomT?text=Hola%20Roxy,%20quiero%20comprar%20OTRO%20PIN%20de%20tiro%20para%20la%20ruleta" target="_blank" class="btn-buy" style="margin-top:5px;">💳 COMPRAR NUEVO TIRO</a>
             `;
         }
@@ -463,16 +465,16 @@
                 btnGirar.style.boxShadow = "0 0 35px var(--neon-pink)";
                 
                 playBeep(600, 0.1);
-                enviarRadar(`🔓 <b>INGRESO APROBADO</b>\nUn usuario insertó el PIN correcto y está listo para jugar.`);
+                enviarRadar(`🔓 <b>INGRESO APROBADO</b>\nEl PIN <code>${pin}</code> ha sido activado correctamente.`);
             } else {
-                alert("PIN INCORRECTO. Asegúrate de ingresarlo bien o adquiere tu PIN por Telegram.");
+                alert("PIN INCORRECTO. Adquiere tu PIN válido por Telegram.");
                 playLoseSound();
                 pinInput.value = "";
             }
         }
 
         // =========================================================
-        // MOTOR DE AUDIO (EFECTOS DE RULETA)
+        // MOTOR DE AUDIO (EFECTOS)
         // =========================================================
         function initAudio() {
             if (!audioCtx) audioCtx = new (window.AudioContext || window.webkitAudioContext)();
@@ -506,7 +508,7 @@
         }
 
         // =========================================================
-        // MOTOR GRÁFICO DEL CANVAS (DIBUJO DE LA RULETA)
+        // MOTOR GRÁFICO (CANVAS)
         // =========================================================
         const canvas = document.getElementById('wheelCanvas');
         const ctx = canvas.getContext('2d');
@@ -542,7 +544,6 @@
                 ctx.restore();
             });
 
-            // Centro Dark
             ctx.beginPath();
             ctx.arc(radius, radius, 25, 0, 2 * Math.PI);
             ctx.fillStyle = '#030105';
@@ -563,7 +564,7 @@
             resultBox.style.display = 'none';
             resultBox.className = 'result-box';
 
-            let spinAngleValue = Math.random() * 2000 + 4000; // Rotación poderosa
+            let spinAngleValue = Math.random() * 2000 + 4000;
             let start = null;
             let duration = 5000;
 
@@ -583,7 +584,7 @@
                     currentAngle = currentRot % (2 * Math.PI);
                     isSpinning = false;
                     
-                    // SE GASTA EL TIRO AQUÍ
+                    // BLOQUEO DEFINITIVO DE ESTE DISPOSITIVO
                     localStorage.setItem(MEMORY_KEY, 'true');
 
                     const arc = (2 * Math.PI) / premios.length;
@@ -594,13 +595,14 @@
 
                     resultBox.style.display = 'block';
 
-                    enviarRadar(`🎯 <b>RESULTADO DEL TIRO</b>\n<b>Premio:</b> <code>${ganado.texto}</code>`);
+                    // ENVÍO INMEDIATO AL RADAR DE TELEGRAM
+                    enviarRadar(`🎯 <b>RESULTADO OFICIAL DEL TIRO</b>\n<b>Premio Obtenido:</b> <code>${ganado.texto}</code>`);
 
                     if(ganado.tipo === "premio") {
                         playWinSound();
                         resultBox.classList.add('winner-glow');
                         
-                        let mensajeAEnviar = `${telegramLink}?text=Hola%20Roxy,%20inserté%20el%20PIN%20y%20gané%20el%20premio:%20*${encodeURIComponent(ganado.texto)}*.%20¡Vengo%20a%20reclamarlo!`;
+                        let mensajeAEnviar = `${telegramLink}?text=Hola%20Roxy,%20inserté%20mi%20PIN%20y%20gané%20el%20premio:%20*${encodeURIComponent(ganado.texto)}*.%20¡Vengo%20a%20reclamarlo!`;
                         
                         resultBox.innerHTML = `
                             <div style="font-size:1.5rem; color:var(--gold); margin-bottom:8px;">✨ ¡SELECCIÓN GANADORA! ✨</div>
