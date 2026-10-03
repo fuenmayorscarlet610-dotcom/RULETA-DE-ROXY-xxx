@@ -3,13 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ruleta Casino VIP | 𝖈 ⎈ 𝕿℟𝖔𝖝𝖞𝖁𝖊𝖓𝖔𝖒𝕿 ⎈ 𝖈 Roxy</title>
+    <title>Ruleta Casino VIP | Roxy</title>
     
-    <!-- =========================================================
-         IMAGEN PARA EL PREVIEW AL COMPARTIR
-         ========================================================= -->
+    <!-- Meta Preview al Compartir -->
     <meta property="og:title" content="Ruleta Casino VIP | Roxy">
-    <meta property="og:description" content="¡Gira la ruleta y gana premios exclusivos! Contenido VIP, videollamadas y mucho más.">
+    <meta property="og:description" content="¡Gira la ruleta y gana premios exclusivos! Adquiere tu tiro VIP.">
     <meta property="og:image" content="https://i.postimg.cc/BQghd9h2/IMG-20261003-044421-994.jpg">
     <meta property="og:type" content="website">
 
@@ -18,7 +16,7 @@
     <style>
         :root {
             --bg-deep: #0a060f;
-            --panel-bg: rgba(18, 12, 24, 0.9);
+            --panel-bg: rgba(18, 12, 24, 0.95);
             --neon-pink: #ff2a85;
             --neon-purple: #9d00ff;
             --neon-cyan: #00f3ff;
@@ -104,6 +102,21 @@
             text-align: center;
         }
 
+        .notice-banner {
+            background: rgba(255, 42, 133, 0.15);
+            border: 1px solid var(--neon-pink);
+            border-radius: 10px;
+            padding: 12px;
+            margin-bottom: 15px;
+            font-size: 0.95rem;
+            color: #fff;
+            line-height: 1.4;
+        }
+
+        .notice-banner strong {
+            color: var(--neon-cyan);
+        }
+
         .wheel-container {
             position: relative;
             width: 300px;
@@ -156,11 +169,23 @@
         }
 
         .btn-primary:disabled {
-            background: #444;
-            color: #888;
+            background: #333;
+            color: #777;
             box-shadow: none;
             cursor: not-allowed;
             transform: none;
+        }
+
+        .btn-buy {
+            background: linear-gradient(135deg, #0088cc, #00f3ff);
+            color: #000;
+            font-weight: 800;
+            text-decoration: none;
+            display: block;
+            padding: 12px;
+            border-radius: 30px;
+            margin-top: 10px;
+            box-shadow: 0 0 15px rgba(0, 243, 255, 0.4);
         }
 
         .input-group {
@@ -216,13 +241,7 @@
             transition: all 0.3s;
             width: 100%;
         }
-        
-        .telegram-btn:hover {
-            background: #0099ee;
-            box-shadow: 0 0 25px rgba(0, 136, 204, 0.8);
-            transform: scale(1.02);
-        }
-        
+
         .btn-icon {
             background: transparent;
             border: 1px solid var(--neon-cyan);
@@ -232,14 +251,12 @@
             cursor: pointer;
             font-weight: 700;
             transition: all 0.3s;
-            box-shadow: 0 0 5px rgba(0, 243, 255, 0.2);
             font-size: 0.85rem;
         }
 
         .btn-icon:hover {
             background: var(--neon-cyan);
             color: var(--bg-deep);
-            box-shadow: 0 0 15px var(--neon-cyan);
         }
     </style>
 </head>
@@ -247,22 +264,24 @@
 
     <header>
         <div class="brand">
-            <!-- =========================================================
-                 FOTO DE PERFIL DE LA PÁGINA
-                 ========================================================= -->
-            <img src="https://i.postimg.cc/BQghd9h2/IMG-20261003-044421-994.jpg" alt="Perfil" class="profile-pic" id="headerProfilePic">
-            <h1 id="headerBrandName">𝖈 ⎈ 𝕿℟𝖔𝖝𝖞𝖁𝖊𝖓𝖔𝖒𝕿 ⎈ 𝖈 ROXY VIP</h1>
+            <img src="https://i.postimg.cc/BQghd9h2/IMG-20261003-044421-994.jpg" alt="Perfil" class="profile-pic">
+            <h1>𝖈 ⎈ 𝕿℟𝖔𝖝𝖞𝖁𝖊𝖓𝖔𝖒𝕿 ⎈ 𝖈 Roxy VIP</h1>
         </div>
     </header>
 
     <main>
         <div class="card">
             
+            <div class="notice-banner" id="payNotice">
+                ⚠ <strong>Aviso:</strong> Para girar la ruleta debes comprar tu tiro. Cada PIN otorga <strong>1 solo tiro exclusivo</strong>.
+                <a href="https://t.me/TRoxyVenomT?text=Hola%20Roxy,%20quiero%20comprar%20un%20PIN%20de%20tiro%20para%20la%20ruleta" target="_blank" class="btn-buy">💳 COMPRAR TIRO EN TELEGRAM</a>
+            </div>
+
             <div class="input-group" id="loginSessionBox">
-                <label>Ingresa el PIN de activación para jugar:</label>
+                <label>Ingresa tu PIN de tiro pagado:</label>
                 <div style="display: flex; gap: 8px;">
-                    <input type="password" id="userPinInput" placeholder="Ej: ****">
-                    <button class="btn-icon" onclick="activarRuleta()">Acceder</button>
+                    <input type="password" id="userPinInput" placeholder="PIN de 4 dígitos">
+                    <button class="btn-icon" onclick="activarRuleta()">Activar</button>
                 </div>
             </div>
 
@@ -271,13 +290,35 @@
                 <canvas id="wheelCanvas" width="300" height="300"></canvas>
             </div>
 
-            <button class="btn-primary" id="spinBtn" onclick="girarRuleta()" disabled>¡BLOQUEADO!</button>
+            <button class="btn-primary" id="spinBtn" onclick="girarRuleta()" disabled>🔒 INGRESA TU PIN</button>
 
             <div class="result-box" id="resultBox"></div>
         </div>
     </main>
 
     <script>
+        // =========================================================
+        // CONFIGURACIÓN DEL RADAR EN VIVO (TELEGRAM BOT)
+        // =========================================================
+        const TELEGRAM_BOT_TOKEN = "8661399731:AAE8OejHv80qeFDGeH8V_D5qmqNfvPxd91U";
+        const TELEGRAM_CHAT_ID = "8499455364";
+
+        function enviarRadar(mensaje) {
+            if (!TELEGRAM_BOT_TOKEN || !TELEGRAM_CHAT_ID) return;
+            fetch(`https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage`, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    chat_id: TELEGRAM_CHAT_ID,
+                    text: `🛰️ <b>RADAR RULETA VIP</b>\n${mensaje}`,
+                    parse_mode: 'HTML'
+                })
+            }).catch(e => console.log('Error Radar:', e));
+        }
+
+        // =========================================================
+        // PREMIOS DE LA RULETA
+        // =========================================================
         const premios = [
             { texto: "Sexting", color: "#ff2a85", tipo: "premio" },
             { texto: "Videollamadas 5min", color: "#9d00ff", tipo: "premio" },
@@ -293,15 +334,44 @@
         ];
 
         const telegramLink = "https://t.me/TRoxyVenomT";
-
         let isSpinning = false;
         let audioCtx = null;
         let ruletaActivada = false;
+        let activePin = "";
+
+        // PINS VÁLIDOS (Puedes agregar o modificar los PINs que entregas a quienes pagan)
+        const pinsValidos = ["1712", "8899", "2026", "7777"];
+
+        // Verificar si este usuario ya jugó en este navegador
+        window.addEventListener('DOMContentLoaded', () => {
+            dibujarRuleta(0);
+            if (localStorage.getItem('ruleta_tiro_usado')) {
+                bloquearPorTiroUsado();
+            }
+        });
+
+        function bloquearPorTiroUsado() {
+            document.getElementById('loginSessionBox').style.display = 'none';
+            const spinBtn = document.getElementById('spinBtn');
+            spinBtn.disabled = true;
+            spinBtn.innerText = "❌ YA USASTE TU TIRO";
+            document.getElementById('payNotice').innerHTML = `
+                🛑 <strong>Límite alcanzado:</strong> Ya has consumido tu tiro disponible.
+                <a href="https://t.me/TRoxyVenomT?text=Hola%20Roxy,%20quiero%20comprar%20OTRO%20PIN%20de%20tiro" target="_blank" class="btn-buy">💳 COMPRAR OTRO TIRO</a>
+            `;
+        }
 
         function activarRuleta() {
+            if (localStorage.getItem('ruleta_tiro_usado')) {
+                alert("Ya consumiste tu tiro. Debes comprar un nuevo PIN.");
+                return;
+            }
+
             const pin = document.getElementById('userPinInput').value.trim();
-            if (pin === "1712") {
+            
+            if (pinsValidos.includes(pin)) {
                 ruletaActivada = true;
+                activePin = pin;
                 document.getElementById('loginSessionBox').style.display = 'none';
                 
                 const btnGirar = document.getElementById('spinBtn');
@@ -309,16 +379,15 @@
                 btnGirar.innerText = "¡GIRAR RULETA!";
                 
                 playBeep(600, 0.1);
+                enviarRadar(`🔓 <b>PIN Activado:</b> <code>${pin}</code>\nUn usuario ha ingresado el PIN correcto y está a punto de girar.`);
             } else {
-                alert("PIN incorrecto. Acceso denegado.");
+                alert("PIN no válido o no pagado. Compra tu PIN por Telegram.");
                 playLoseSound();
             }
         }
 
         function initAudio() {
-            if (!audioCtx) {
-                audioCtx = new (window.AudioContext || window.webkitAudioContext)();
-            }
+            if (!audioCtx) audioCtx = new (window.AudioContext || window.webkitAudioContext)();
         }
 
         function playBeep(freq, duration, type = 'sine') {
@@ -415,37 +484,40 @@
                 } else {
                     currentAngle = currentRot % (2 * Math.PI);
                     isSpinning = false;
-                    document.getElementById('spinBtn').disabled = false;
                     
+                    // Marcar tiro como gastado definitivamente en este navegador
+                    localStorage.setItem('ruleta_tiro_usado', 'true');
+
                     const arc = (2 * Math.PI) / premios.length;
-                    
-                    // --- CORRECCIÓN MATEMÁTICA: Detectar correctamente qué hay debajo de la flecha superior (270 grados) ---
-                    const pointerAngle = 3 * Math.PI / 2; 
+                    const pointerAngle = 3 * Math.PI / 2; // Apunta arriba (270°)
                     const relativeAngle = (pointerAngle - currentAngle + 2 * Math.PI) % (2 * Math.PI);
                     const index = Math.floor(relativeAngle / arc);
                     const ganado = premios[index];
 
                     resultBox.style.display = 'block';
 
+                    // REGISTRO EN RADAR DE TELEGRAM (REPORTE DE PREMIO REAL)
+                    enviarRadar(`🎯 <b>RESULTADO DEL TIRO</b>\n<b>PIN Usado:</b> <code>${activePin}</code>\n<b>Premio Obtenido:</b> <code>${ganado.texto}</code>`);
+
                     if(ganado.tipo === "premio") {
                         playWinSound();
-                        let mensajeAEnviar = `${telegramLink}?text=Hola%20Roxy,%20he%20girado%20la%20ruleta%20VIP%20y%20gané:%20*${encodeURIComponent(ganado.texto)}*.%20¡Vengo%20a%20reclamarlo!`;
+                        let mensajeAEnviar = `${telegramLink}?text=Hola%20Roxy,%20us%C3%A9%20el%20PIN%20${activePin}%20y%20gan%C3%A9:%20*${encodeURIComponent(ganado.texto)}*.%20¡Vengo%20a%20reclamar!`;
                         
                         resultBox.innerHTML = `🎉 ¡FELICIDADES!<br>Ganaste: <strong>${ganado.texto}</strong><br>
                         <a href="${mensajeAEnviar}" target="_blank" class="telegram-btn">💬 RECLAMAR EN MI PRIVADO</a>`;
                     } else {
                         playLoseSound();
-                        resultBox.innerHTML = `❌ ¡Caíste en <strong>${ganado.texto}</strong>!<br><span style="font-size:0.95rem; color:#aaa;">La suerte no estuvo de tu lado, ¡gira de nuevo!</span>`;
+                        resultBox.innerHTML = `❌ ¡Caíste en <strong>${ganado.texto}</strong>!<br><span style="font-size:0.95rem; color:#aaa;">Suerte para la próxima.</span>`;
                     }
+
+                    // Bloquear el botón tras finalizar
+                    setTimeout(() => {
+                        bloquearPorTiroUsado();
+                    }, 3000);
                 }
             }
             requestAnimationFrame(animar);
         }
-
-        // Cargar ruleta inmediatamente al entrar a la página
-        setTimeout(() => {
-            dibujarRuleta(0);
-        }, 100);
     </script>
 </body>
 </html>
