@@ -62,6 +62,7 @@
             display: flex;
             align-items: center;
             gap: 12px;
+            cursor: pointer;
         }
 
         .profile-pic {
@@ -79,6 +80,28 @@
             color: var(--text-main);
             text-shadow: 0 0 10px var(--neon-pink);
             letter-spacing: 1px;
+        }
+
+        /* Reproductor de Música UI */
+        .music-player {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(157, 0, 255, 0.15);
+            border: 1px solid var(--neon-purple);
+            padding: 6px 12px;
+            border-radius: 20px;
+        }
+
+        .music-btn {
+            background: none;
+            border: none;
+            color: var(--neon-cyan);
+            cursor: pointer;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
         main {
@@ -258,16 +281,72 @@
             background: var(--neon-cyan);
             color: var(--bg-deep);
         }
+
+        /* Panel Admin oculto para gestionar PINs */
+        #adminPanel {
+            display: none;
+            margin-top: 15px;
+            background: rgba(255, 42, 133, 0.05);
+            border: 1px dashed var(--neon-pink);
+            padding: 12px;
+            border-radius: 10px;
+            text-align: left;
+        }
+
+        #adminPanel h3 {
+            font-size: 0.95rem;
+            color: var(--gold);
+            margin-bottom: 8px;
+        }
+
+        .pin-list {
+            max-height: 90px;
+            overflow-y: auto;
+            margin-bottom: 8px;
+            font-size: 0.85rem;
+            background: rgba(0,0,0,0.4);
+            padding: 5px;
+            border-radius: 5px;
+        }
+
+        .pin-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 2px 5px;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .pin-item button {
+            background: #ff2a85;
+            color: white;
+            border: none;
+            border-radius: 3px;
+            padding: 1px 6px;
+            cursor: pointer;
+            font-size: 0.75rem;
+        }
     </style>
 </head>
 <body>
 
     <header>
-        <div class="brand">
+        <div class="brand" onclick="toggleAdminPanel()" title="Toca dos veces para configurar PINs">
             <img src="https://i.postimg.cc/BQghd9h2/IMG-20261003-044421-994.jpg" alt="Perfil" class="profile-pic">
-            <h1>𝖈 ⎈ 𝕿℟𝖔𝖝𝖞𝖁𝖊𝖓𝖔𝖒𝕿 ⎈ 𝖈 Roxy VIP</h1>
+            <h1>Roxy VIP 𝖈 ⎈ 𝕿℟𝖔𝖝𝖞𝖁𝖊𝖓𝖔𝖒𝕿 ⎈ 𝖈</h1>
+        </div>
+        
+        <!-- Reproductor de música ambiental -->
+        <div class="music-player">
+            <button class="music-btn" id="playMusicBtn" onclick="toggleMusic()" title="Reproducir música ambiental">🎵</button>
+            <span style="font-size: 0.75rem; color: var(--neon-cyan);" id="musicStatus">Música OFF</span>
         </div>
     </header>
+
+    <!-- Audio de fondo (Lofi / Casino Lounge libre de copyright) -->
+    <audio id="bgAudio" loop>
+        <source src="https://cdn.pixabay.com/download/audio/2022/05/27/audio_1808fbf7f6.mp3?filename=lofi-study-112191.mp3" type="audio/mpeg">
+    </audio>
 
     <main>
         <div class="card">
@@ -277,7 +356,17 @@
                 <a href="https://t.me/TRoxyVenomT?text=Hola%20Roxy,%20quiero%20comprar%20un%20PIN%20de%20tiro%20para%20la%20ruleta" target="_blank" class="btn-buy">💳 COMPRAR TIRO EN TELEGRAM</a>
             </div>
 
-            <div class="input-group" id="loginSessionBox">
+            <!-- Panel de administración de PINs (Oculto por defecto, se abre tocando el logo) -->
+            <div id="adminPanel">
+                <h3>⚙️ Gestión de PINs Activos</h3>
+                <div class="pin-list" id="pinListContainer"></div>
+                <div style="display: flex; gap: 5px;">
+                    <input type="text" id="newPinInput" placeholder="Nuevo PIN" style="padding: 5px; font-size: 0.85rem; width: 70%; background: #000; border: 1px solid var(--neon-purple); color: #fff; border-radius: 4px;">
+                    <button class="btn-icon" onclick="agregarPin()" style="width: 30%; font-size: 0.75rem;">Añadir</button>
+                </div>
+            </div>
+
+            <div class="input-group" id="loginSessionBox" style="margin-top: 15px;">
                 <label>Ingresa tu PIN de tiro pagado:</label>
                 <div style="display: flex; gap: 8px;">
                     <input type="password" id="userPinInput" placeholder="PIN de 4 dígitos">
@@ -317,6 +406,87 @@
         }
 
         // =========================================================
+        // GESTIÓN DE MÚSICA AMBIENTAL
+        // =========================================================
+        let musicPlaying = false;
+        const bgAudio = document.getElementById('bgAudio');
+        bgAudio.volume = 0.4; // Volumen moderado para no saturar
+
+        function toggleMusic() {
+            if (musicPlaying) {
+                bgAudio.pause();
+                musicPlaying = false;
+                document.getElementById('playMusicBtn').innerText = "🎵";
+                document.getElementById('musicStatus').innerText = "Música OFF";
+            } else {
+                bgAudio.play().then(() => {
+                    musicPlaying = true;
+                    document.getElementById('playMusicBtn').innerText = "⏸";
+                    document.getElementById('musicStatus').innerText = "Música ON";
+                }).catch(e => console.log("Bloqueo de reproducción automática por navegador:", e));
+            }
+        }
+
+        // =========================================================
+        // GESTIÓN DE PINs DINÁMICOS (ALMACENADOS EN LOCALSTORAGE)
+        // =========================================================
+        // PINs por defecto si es la primera vez
+        let pinsValidos = JSON.parse(localStorage.getItem('roxy_pins')) || ["1712", "8899", "2026", "7777"];
+
+        function guardarPins() {
+            localStorage.setItem('roxy_pins', JSON.stringify(pinsValidos));
+            actualizarListaAdmin();
+        }
+
+        function actualizarListaAdmin() {
+            const container = document.getElementById('pinListContainer');
+            container.innerHTML = "";
+            pinsValidos.forEach(pin => {
+                container.innerHTML += `
+                    <div class="pin-item">
+                        <span>🔑 <b>${pin}</b></span>
+                        <button onclick="eliminarPin('${pin}')">Eliminar</button>
+                    </div>
+                `;
+            });
+        }
+
+        function agregarPin() {
+            const nuevoPin = document.getElementById('newPinInput').value.trim();
+            if (nuevoPin.length >= 3) {
+                if (!pinsValidos.includes(nuevoPin)) {
+                    pinsValidos.push(nuevoPin);
+                    guardarPins();
+                    document.getElementById('newPinInput').value = "";
+                    alert(`¡PIN ${nuevoPIN} agregado con éxito!`);
+                } else {
+                    alert("Este PIN ya existe.");
+                }
+            } else {
+                alert("El PIN debe tener al menos 3 caracteres.");
+            }
+        }
+
+        function eliminarPin(pinAEliminar) {
+            if (pinsValidos.length <= 1) {
+                alert("Debes mantener al menos 1 PIN activo.");
+                return;
+            }
+            pinsValidos = pinsValidos.filter(p => p !== pinAEliminar);
+            guardarPins();
+        }
+
+        function toggleAdminPanel() {
+            const panel = document.getElementById('adminPanel');
+            if (panel.style.display === 'block') {
+                panel.style.display = 'none';
+            } else {
+                panel.style.display = 'block';
+                actualizarListaAdmin();
+            }
+        }
+
+        // =========================================================
         // PREMIOS DE LA RULETA
         // =========================================================
         const premios = [
@@ -339,9 +509,6 @@
         let ruletaActivada = false;
         let activePin = "";
 
-        // PINS VÁLIDOS (Puedes agregar o modificar los PINs que entregas a quienes pagan)
-        const pinsValidos = ["1712", "8899", "2026", "7777"];
-
         // Verificar si este usuario ya jugó en este navegador
         window.addEventListener('DOMContentLoaded', () => {
             dibujarRuleta(0);
@@ -352,6 +519,7 @@
 
         function bloquearPorTiroUsado() {
             document.getElementById('loginSessionBox').style.display = 'none';
+            document.getElementById('adminPanel').style.display = 'none';
             const spinBtn = document.getElementById('spinBtn');
             spinBtn.disabled = true;
             spinBtn.innerText = "❌ YA USASTE TU TIRO";
@@ -367,12 +535,14 @@
                 return;
             }
 
-            const pin = document.getElementById('userPinInput').value.trim();
+            const pinInput = document.getElementById('userPinInput');
+            const pin = pinInput.value.trim();
             
             if (pinsValidos.includes(pin)) {
                 ruletaActivada = true;
                 activePin = pin;
                 document.getElementById('loginSessionBox').style.display = 'none';
+                document.getElementById('adminPanel').style.display = 'none';
                 
                 const btnGirar = document.getElementById('spinBtn');
                 btnGirar.disabled = false;
@@ -383,141 +553,9 @@
             } else {
                 alert("PIN no válido o no pagado. Compra tu PIN por Telegram.");
                 playLoseSound();
+                pinInput.value = "";
             }
         }
 
         function initAudio() {
-            if (!audioCtx) audioCtx = new (window.AudioContext || window.webkitAudioContext)();
-        }
-
-        function playBeep(freq, duration, type = 'sine') {
-            initAudio();
-            if(!audioCtx) return;
-            try {
-                let osc = audioCtx.createOscillator();
-                let gain = audioCtx.createGain();
-                osc.type = type;
-                osc.frequency.value = freq;
-                gain.gain.setValueAtTime(0.1, audioCtx.currentTime);
-                gain.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + duration);
-                osc.connect(gain);
-                gain.connect(audioCtx.destination);
-                osc.start();
-                osc.stop(audioCtx.currentTime + duration);
-            } catch(e){}
-        }
-
-        function playWinSound() {
-            playBeep(523.25, 0.15); setTimeout(() => playBeep(659.25, 0.15), 150);
-            setTimeout(() => playBeep(783.99, 0.3), 300); setTimeout(() => playBeep(1046.50, 0.5), 450);
-        }
-
-        function playLoseSound() {
-            playBeep(300, 0.2, 'sawtooth');
-            setTimeout(() => playBeep(220, 0.4, 'sawtooth'), 200);
-        }
-
-        const canvas = document.getElementById('wheelCanvas');
-        const ctx = canvas.getContext('2d');
-        const radius = canvas.width / 2;
-        let currentAngle = 0;
-
-        function dibujarRuleta(anguloRotacion = 0) {
-            const arc = (2 * Math.PI) / premios.length;
-            ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-            premios.forEach((premio, i) => {
-                const angle = anguloRotacion + i * arc;
-                ctx.beginPath();
-                ctx.fillStyle = premio.color;
-                ctx.moveTo(radius, radius);
-                ctx.arc(radius, radius, radius - 5, angle, angle + arc, false);
-                ctx.lineTo(radius, radius);
-                ctx.fill();
-                ctx.strokeStyle = '#0a060f';
-                ctx.lineWidth = 2;
-                ctx.stroke();
-
-                ctx.save();
-                ctx.translate(radius, radius);
-                ctx.rotate(angle + arc / 2);
-                ctx.textAlign = "right";
-                ctx.fillStyle = "#ffffff";
-                ctx.font = "bold 10px 'Rajdhani', sans-serif";
-                ctx.fillText(premio.texto, radius - 15, 4);
-                ctx.restore();
-            });
-
-            ctx.beginPath();
-            ctx.arc(radius, radius, 18, 0, 2 * Math.PI);
-            ctx.fillStyle = '#0a060f';
-            ctx.fill();
-            ctx.lineWidth = 3;
-            ctx.strokeStyle = 'var(--neon-pink)';
-            ctx.stroke();
-        }
-
-        function girarRuleta() {
-            if (isSpinning || !ruletaActivada) return;
-            
-            isSpinning = true;
-            document.getElementById('spinBtn').disabled = true;
-
-            const resultBox = document.getElementById('resultBox');
-            resultBox.style.display = 'none';
-
-            let spinAngleValue = Math.random() * 2000 + 3000;
-            let start = null;
-            let duration = 4000;
-
-            function animar(timestamp) {
-                if (!start) start = timestamp;
-                let progress = timestamp - start;
-                let easeOut = 1 - Math.pow(1 - Math.min(progress / duration, 1), 3);
-                let currentRot = currentAngle + easeOut * spinAngleValue;
-
-                dibujarRuleta(currentRot);
-                playBeep(800, 0.05, 'square');
-
-                if (progress < duration) {
-                    requestAnimationFrame(animar);
-                } else {
-                    currentAngle = currentRot % (2 * Math.PI);
-                    isSpinning = false;
-                    
-                    // Marcar tiro como gastado definitivamente en este navegador
-                    localStorage.setItem('ruleta_tiro_usado', 'true');
-
-                    const arc = (2 * Math.PI) / premios.length;
-                    const pointerAngle = 3 * Math.PI / 2; // Apunta arriba (270°)
-                    const relativeAngle = (pointerAngle - currentAngle + 2 * Math.PI) % (2 * Math.PI);
-                    const index = Math.floor(relativeAngle / arc);
-                    const ganado = premios[index];
-
-                    resultBox.style.display = 'block';
-
-                    // REGISTRO EN RADAR DE TELEGRAM (REPORTE DE PREMIO REAL)
-                    enviarRadar(`🎯 <b>RESULTADO DEL TIRO</b>\n<b>PIN Usado:</b> <code>${activePin}</code>\n<b>Premio Obtenido:</b> <code>${ganado.texto}</code>`);
-
-                    if(ganado.tipo === "premio") {
-                        playWinSound();
-                        let mensajeAEnviar = `${telegramLink}?text=Hola%20Roxy,%20us%C3%A9%20el%20PIN%20${activePin}%20y%20gan%C3%A9:%20*${encodeURIComponent(ganado.texto)}*.%20¡Vengo%20a%20reclamar!`;
-                        
-                        resultBox.innerHTML = `🎉 ¡FELICIDADES!<br>Ganaste: <strong>${ganado.texto}</strong><br>
-                        <a href="${mensajeAEnviar}" target="_blank" class="telegram-btn">💬 RECLAMAR EN MI PRIVADO</a>`;
-                    } else {
-                        playLoseSound();
-                        resultBox.innerHTML = `❌ ¡Caíste en <strong>${ganado.texto}</strong>!<br><span style="font-size:0.95rem; color:#aaa;">Suerte para la próxima.</span>`;
-                    }
-
-                    // Bloquear el botón tras finalizar
-                    setTimeout(() => {
-                        bloquearPorTiroUsado();
-                    }, 3000);
-                }
-            }
-            requestAnimationFrame(animar);
-        }
-    </script>
-</body>
-</html>
+            if (!audioCtx) audioCtx = new (window.AudioCon
