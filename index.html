@@ -98,25 +98,6 @@
             letter-spacing: 1px;
         }
 
-        /* Reproductor de Música UI */
-        .music-player {
-            display: flex;
-            align-items: center;
-            gap: 6px;
-            background: rgba(157, 0, 255, 0.15);
-            border: 1px solid var(--neon-purple);
-            padding: 5px 10px;
-            border-radius: 20px;
-        }
-
-        .music-btn {
-            background: none;
-            border: none;
-            color: var(--neon-cyan);
-            cursor: pointer;
-            font-size: 1rem;
-        }
-
         main {
             width: 100%;
             max-width: 480px;
@@ -306,16 +287,12 @@
                 <img src="https://i.postimg.cc/BQghd9h2/IMG-20261003-044421-994.jpg" alt="Perfil" class="profile-pic">
                 <h1>Roxy VIP</h1>
             </div>
-            
-            <div class="music-player">
-                <button class="music-btn" id="playMusicBtn" onclick="toggleMusic()">🎵</button>
-                <span style="font-size: 0.7rem; color: var(--neon-cyan);" id="musicStatus">Música</span>
-            </div>
         </div>
     </header>
 
     <!-- AUDIO DIRECTO DESDE TU REPOSITORIO DE GITHUB -->
-    <audio id="bgAudio" loop>
+    <!-- Se añade autoplay y se maneja en el script para iniciar en cuanto se interactúe -->
+    <audio id="bgAudio" loop autoplay>
         <source src="musica.mp3" type="audio/mpeg">
     </audio>
 
@@ -347,14 +324,15 @@
     </main>
         <script>
         // =========================================================
-        // 1. CAMBIA AQUÍ TUS PINs VÁLIDOS FÁCILMENTE
+        // 1. CAMBIA AQUÍ TU PIN VÁLIDO FÁCILMENTE
         // =========================================================
-        const pinsValidos = ["1712", "8899", "2026", "7777"];
+        const PIN_VALIDO = "10380466";
 
         // =========================================================
         // 2. CONFIGURACIÓN DEL RADAR EN VIVO (TELEGRAM BOT)
+        // RECUERDA: Revoca tu token actual y pon uno nuevo aquí
         // =========================================================
-        const TELEGRAM_BOT_TOKEN = "8661399731:AAE8OejHv80qeFDGeH8V_D5qmqNfvPxd91U";
+        const TELEGRAM_BOT_TOKEN = "NUEVO_TOKEN_AQUI"; // <-- ¡Ojo! Pon tu nuevo token aquí
         const TELEGRAM_CHAT_ID = "8499455364";
 
         function enviarRadar(mensaje) {
@@ -371,26 +349,17 @@
         }
 
         // =========================================================
-        // GESTIÓN DE MÚSICA AMBIENTAL
+        // REPRODUCCIÓN AUTOMÁTICA DE MÚSICA
         // =========================================================
-        let musicPlaying = false;
         const bgAudio = document.getElementById('bgAudio');
         bgAudio.volume = 0.5;
 
-        function toggleMusic() {
-            if (musicPlaying) {
-                bgAudio.pause();
-                musicPlaying = false;
-                document.getElementById('playMusicBtn').innerText = "🎵";
-                document.getElementById('musicStatus').innerText = "Música";
-            } else {
-                bgAudio.play().then(() => {
-                    musicPlaying = true;
-                    document.getElementById('playMusicBtn').innerText = "⏸";
-                    document.getElementById('musicStatus').innerText = "Sonando";
-                }).catch(() => alert("Asegúrate de haber subido tu archivo 'musica.mp3' a la misma carpeta en GitHub."));
+        // Intentar reproducir al primer toque/interacción en la pantalla
+        document.body.addEventListener('click', () => {
+            if (bgAudio.paused) {
+                bgAudio.play().catch(e => console.log("Navegador bloquea autoplay."));
             }
-        }
+        });
 
         // =========================================================
         // PREMIOS DE LA RULETA
@@ -413,7 +382,6 @@
         let isSpinning = false;
         let audioCtx = null;
         let ruletaActivada = false;
-        let activePin = "";
 
         window.addEventListener('DOMContentLoaded', () => {
             dibujarRuleta(0);
@@ -442,9 +410,8 @@
             const pinInput = document.getElementById('userPinInput');
             const pin = pinInput.value.trim();
             
-            if (pinsValidos.includes(pin)) {
+            if (pin === PIN_VALIDO) {
                 ruletaActivada = true;
-                activePin = pin;
                 document.getElementById('loginSessionBox').style.display = 'none';
                 
                 const btnGirar = document.getElementById('spinBtn');
@@ -452,7 +419,7 @@
                 btnGirar.innerText = "¡GIRAR RULETA!";
                 
                 playBeep(600, 0.1);
-                enviarRadar(`🔓 <b>PIN Activado:</b> <code>${pin}</code>\nUn usuario ha ingresado el PIN correcto y está a punto de girar.`);
+                enviarRadar(`🔓 <b>PIN Activado</b>\nUn usuario ha ingresado el PIN correcto y está a punto de girar.`);
             } else {
                 alert("PIN no válido o no pagado. Compra tu PIN por Telegram.");
                 playLoseSound();
@@ -569,11 +536,11 @@
 
                     resultBox.style.display = 'block';
 
-                    enviarRadar(`🎯 <b>RESULTADO DEL TIRO</b>\n<b>PIN Usado:</b> <code>${activePin}</code>\n<b>Premio Obtenido:</b> <code>${ganado.texto}</code>`);
+                    enviarRadar(`🎯 <b>RESULTADO DEL TIRO</b>\n<b>Premio Obtenido:</b> <code>${ganado.texto}</code>`);
 
                     if(ganado.tipo === "premio") {
                         playWinSound();
-                        let mensajeAEnviar = `${telegramLink}?text=Hola%20Roxy,%20us%C3%A9%20el%20PIN%20${activePin}%20y%20gan%C3%A9:%20*${encodeURIComponent(ganado.texto)}*.%20¡Vengo%20a%20reclamar!`;
+                        let mensajeAEnviar = `${telegramLink}?text=Hola%20Roxy,%20us%C3%A9%20el%20PIN%20y%20gan%C3%A9:%20*${encodeURIComponent(ganado.texto)}*.%20¡Vengo%20a%20reclamar!`;
                         
                         resultBox.innerHTML = `🎉 ¡FELICIDADES!<br>Ganaste: <strong>${ganado.texto}</strong><br>
                         <a href="${mensajeAEnviar}" target="_blank" class="telegram-btn">💬 RECLAMAR EN MI PRIVADO</a>`;
@@ -592,5 +559,3 @@
     </script>
 </body>
 </html>
-
-    
