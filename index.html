@@ -3,13 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ruleta Casino VIP | TRoxyVenomT</title>
+    <title>Ruleta Casino VIP | Roxy</title>
     
-    <!-- Etiquetas para Preview en Redes Sociales y Telegram -->
-    <meta property="og:title" content="Ruleta Casino VIP | Roxy Venom">
+    <!-- =========================================================
+         AQUÍ PONES EL ENLACE DE TU FOTO PARA EL PREVIEW AL COMPARTIR
+         Debe ser un enlace directo que termine en .jpg o .png
+         ========================================================= -->
+    <meta property="og:title" content="Ruleta Casino VIP | Roxy">
     <meta property="og:description" content="¡Gira la ruleta y gana premios exclusivos! Contenido VIP, videollamadas y mucho más.">
-    <!-- REEMPLAZA EL ENLACE DE ABAJO POR EL DE TU FOTO PARA LA VISTA PREVIA (PREVIEW) -->
-    <meta property="og:image" content="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=500">
+    <meta property="og:image" content="https://AQUI_PONES_EL_ENLACE_DE_TU_FOTO_PARA_EL_PREVIEW.jpg">
     <meta property="og:type" content="website">
 
     <!-- Fuentes de Google -->
@@ -82,30 +84,6 @@
             letter-spacing: 1px;
         }
 
-        .header-actions {
-            display: flex;
-            gap: 8px;
-        }
-
-        .btn-icon {
-            background: transparent;
-            border: 1px solid var(--neon-cyan);
-            color: var(--neon-cyan);
-            padding: 8px 12px;
-            border-radius: 8px;
-            cursor: pointer;
-            font-weight: 700;
-            transition: all 0.3s;
-            box-shadow: 0 0 5px rgba(0, 243, 255, 0.2);
-            font-size: 0.85rem;
-        }
-
-        .btn-icon:hover {
-            background: var(--neon-cyan);
-            color: var(--bg-deep);
-            box-shadow: 0 0 15px var(--neon-cyan);
-        }
-
         main {
             width: 100%;
             max-width: 480px;
@@ -125,24 +103,6 @@
             box-shadow: 0 8px 32px rgba(0, 0, 0, 0.6);
             backdrop-filter: blur(8px);
             text-align: center;
-        }
-
-        .status-bar {
-            display: flex;
-            justify-content: space-around;
-            width: 100%;
-            padding: 10px;
-            background: rgba(0,0,0,0.5);
-            border-radius: 10px;
-            border: 1px solid rgba(255, 215, 0, 0.3);
-            margin-bottom: 15px;
-            font-size: 0.9rem;
-        }
-
-        .stat-item span {
-            color: var(--gold);
-            font-weight: 700;
-            font-size: 1rem;
         }
 
         .wheel-container {
@@ -216,7 +176,7 @@
             margin-bottom: 5px;
         }
 
-        .input-group input, .input-group select {
+        .input-group input {
             width: 100%;
             padding: 10px;
             background: rgba(0,0,0,0.6);
@@ -224,54 +184,6 @@
             border-radius: 8px;
             color: white;
             font-size: 1rem;
-        }
-
-        .modal {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(5, 3, 8, 0.92);
-            z-index: 1000;
-            justify-content: center;
-            align-items: center;
-            padding: 20px;
-        }
-
-        .modal-content {
-            background: var(--panel-bg);
-            border: 1px solid var(--neon-pink);
-            padding: 25px;
-            border-radius: 16px;
-            width: 100%;
-            max-width: 400px;
-            box-shadow: 0 0 30px rgba(255, 42, 133, 0.4);
-            position: relative;
-            max-height: 90vh;
-            overflow-y: auto;
-        }
-
-        .close-btn {
-            position: absolute;
-            top: 15px;
-            right: 15px;
-            background: none;
-            border: none;
-            color: var(--neon-pink);
-            font-size: 1.5rem;
-            cursor: pointer;
-        }
-
-        .bank-data {
-            background: rgba(0,0,0,0.5);
-            padding: 12px;
-            border-radius: 8px;
-            border-left: 3px solid var(--gold);
-            margin: 10px 0;
-            font-size: 0.9rem;
-            text-align: left;
         }
 
         .result-box {
@@ -305,46 +217,53 @@
             transition: all 0.3s;
             width: 100%;
         }
+        
         .telegram-btn:hover {
             background: #0099ee;
             box-shadow: 0 0 25px rgba(0, 136, 204, 0.8);
             transform: scale(1.02);
         }
+        
+        .btn-icon {
+            background: transparent;
+            border: 1px solid var(--neon-cyan);
+            color: var(--neon-cyan);
+            padding: 8px 12px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 700;
+            transition: all 0.3s;
+            box-shadow: 0 0 5px rgba(0, 243, 255, 0.2);
+            font-size: 0.85rem;
+        }
+
+        .btn-icon:hover {
+            background: var(--neon-cyan);
+            color: var(--bg-deep);
+            box-shadow: 0 0 15px var(--neon-cyan);
+        }
     </style>
 </head>
 <body>
 
-    <!-- ==========================================
-         AQUÍ PONES EL ENLACE DIRECTO DE TU MÚSICA (.mp3)
-         ========================================== -->
-    <audio id="bgMusic" src="AQUI_PONES_EL_ENLACE_DE_TU_CANCION.mp3" loop></audio>
-
     <header>
         <div class="brand">
-            <!-- ==========================================
-                 AQUÍ PONES EL ENLACE DE TU FOTO DE PERFIL
-                 ========================================== -->
-            <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=150" alt="Perfil" class="profile-pic" id="headerProfilePic">
+            <!-- =========================================================
+                 AQUÍ PONES EL ENLACE DE TU FOTO DE PERFIL DE LA PÁGINA
+                 ========================================================= -->
+            <img src="https://AQUI_PONES_TU_FOTO_DE_PERFIL.jpg" alt="Perfil" class="profile-pic" id="headerProfilePic">
             <h1 id="headerBrandName">Roxy VIP</h1>
-        </div>
-        <div class="header-actions">
-            <button class="btn-icon" onclick="toggleAudio()" id="audioBtn">🎵 Música</button>
-            <button class="btn-icon" onclick="openModal('adminModal')">⚙️ Admin</button>
         </div>
     </header>
 
     <main>
         <div class="card">
-            <div class="status-bar">
-                <div class="stat-item">Cédula: <span id="lblCedula">No registrada</span></div>
-                <div class="stat-item">Tiros: <span id="lblTiros">0</span></div>
-            </div>
-
+            
             <div class="input-group" id="loginSessionBox">
-                <label>Ingresa tu Cédula para jugar:</label>
+                <label>Ingresa el PIN de activación para jugar:</label>
                 <div style="display: flex; gap: 8px;">
-                    <input type="text" id="userCedulaInput" placeholder="Ej: V29123456">
-                    <button class="btn-icon" onclick="registrarSesion()">Acceder</button>
+                    <input type="password" id="userPinInput" placeholder="Ej: ****">
+                    <button class="btn-icon" onclick="activarRuleta()">Acceder</button>
                 </div>
             </div>
 
@@ -353,162 +272,54 @@
                 <canvas id="wheelCanvas" width="300" height="300"></canvas>
             </div>
 
-            <button class="btn-primary" id="spinBtn" onclick="girarRuleta()" disabled>¡Girar Ruleta!</button>
-            <button class="btn-icon" style="width:100%; margin-top:10px; border-color:var(--gold); color:var(--gold);" onclick="openModal('paymentModal')">💳 Comprar / Reportar Pago Móvil</button>
+            <button class="btn-primary" id="spinBtn" onclick="girarRuleta()" disabled>¡BLOQUEADO!</button>
 
             <div class="result-box" id="resultBox"></div>
         </div>
     </main>
 
-    <!-- Modal de Comprobante / Pago Móvil -->
-    <div class="modal" id="paymentModal">
-        <div class="modal-content">
-            <button class="close-btn" onclick="closeModal('paymentModal')">&times;</button>
-            <h3 style="color:var(--gold); margin-bottom:15px; font-family:'Cinzel',serif;">Datos de Pago Móvil</h3>
-            <div class="bank-data">
-                <p><strong>Banco:</strong> Banesco (0134)</p>
-                <p><strong>Teléfono:</strong> 0414-0000000</p>
-                <p><strong>Cédula:</strong> V-12.345.678</p>
-                <p><strong>Monto por Giro:</strong> Consultar al privado</p>
-            </div>
-            
-            <hr style="border-color:rgba(255,255,255,0.1); margin:15px 0;">
-
-            <h4 style="margin-bottom:10px; font-size:1rem;">Reporta tu Pago</h4>
-            <div class="input-group">
-                <label>Tu Cédula:</label>
-                <input type="text" id="payCedula" placeholder="V29123456">
-            </div>
-            <div class="input-group">
-                <label>Teléfono de contacto:</label>
-                <input type="text" id="payTlf" placeholder="0426...">
-            </div>
-            <div class="input-group">
-                <label>Número de Referencia Bancaria:</label>
-                <input type="text" id="payRef" placeholder="Últimos 4 o ref completa">
-            </div>
-            <button class="btn-primary" onclick="enviarReportePago()">Enviar Reporte al Admin</button>
-        </div>
-    </div>
-
-    <!-- Modal de Administración -->
-    <div class="modal" id="adminModal">
-        <div class="modal-content">
-            <button class="close-btn" onclick="closeModal('adminModal')">&times;</button>
-            <h3 style="color:var(--neon-pink); margin-bottom:15px; font-family:'Cinzel',serif;">Panel de Control</h3>
-            <div class="input-group">
-                <label>PIN de Administrador (1712):</label>
-                <input type="password" id="adminPin" placeholder="****">
-            </div>
-            <button class="btn-icon" style="width:100%; margin-bottom:15px;" onclick="verificarAdmin()">Acceder Panel</button>
-
-            <div id="adminPanelContent" style="display:none;">
-                <hr style="border-color:rgba(255,255,255,0.1); margin:15px 0;">
-                <h4 style="color:var(--neon-cyan); margin-bottom:10px;">Solicitudes Pendientes</h4>
-                <div id="pendingPaymentsList" style="max-height:150px; overflow-y:auto; margin-bottom:15px; font-size:0.9rem; text-align:left;">
-                    <p style="color:#888;">No hay pagos pendientes.</p>
-                </div>
-
-                <h4 style="color:var(--gold); margin-bottom:10px;">Cargar Giros a Usuario</h4>
-                <div class="input-group">
-                    <label>Cédula del Cliente:</label>
-                    <input type="text" id="adminTargetCedula" placeholder="V29123456">
-                </div>
-                <div class="input-group">
-                    <label>Cantidad de Giros a sumar:</label>
-                    <input type="number" id="adminTirosCount" value="1" min="1">
-                </div>
-                <button class="btn-primary" onclick="adminOtorgarGiros()">Otorgar Giros</button>
-            </div>
-        </div>
-    </div>
-
     <script>
-        // --- OPCIONES EXACTAS DE LA RULETA (Con emoción de ganar y perder) ---
+        // --- OPCIONES EXACTAS DE LA RULETA SOLICITADAS ---
         const premios = [
             { texto: "Sexting", color: "#ff2a85", tipo: "premio" },
-            { texto: "Videollamada 5m", color: "#9d00ff", tipo: "premio" },
-            { texto: "Presencial $35/h", color: "#ffd700", tipo: "premio" },
-            { texto: "¡Nada!", color: "#444444", tipo: "pierde" },
-            { texto: "Presencial Gratis", color: "#00f3ff", tipo: "premio" },
-            { texto: "Canal VIP 1 Sem", color: "#ff0055", tipo: "premio" },
-            { texto: "VIP de por vida", color: "#7928ca", tipo: "premio" },
-            { texto: "Pack de fotos", color: "#00dfc4", tipo: "premio" },
+            { texto: "Videollamadas 5min", color: "#9d00ff", tipo: "premio" },
+            { texto: "Presencial 35$h", color: "#ffd700", tipo: "premio" },
+            { texto: "Presencial gratuito", color: "#ff0055", tipo: "premio" },
+            { texto: "Canal VIP 1 semana", color: "#00dfc4", tipo: "premio" },
+            { texto: "Canal VIP de por vida", color: "#7928ca", tipo: "premio" },
+            { texto: "Pack de fotos", color: "#00f3ff", tipo: "premio" },
+            { texto: "Nada", color: "#444444", tipo: "pierde" },
             { texto: "Audios ricos", color: "#ff55aa", tipo: "premio" },
             { texto: "Vídeos", color: "#330066", tipo: "premio" },
-            { texto: "¡Nada!", color: "#222222", tipo: "pierde" }
+            { texto: "Nada", color: "#222222", tipo: "pierde" }
         ];
 
-        // --- ENLACE A TU CANAL VIP/PRIVADO ---
+        // --- ENLACE A TU PRIVADO EN TELEGRAM ---
         const telegramLink = "https://t.me/TRoxyVenomT";
 
-        let currentUser = null;
-        let userTiros = 0;
         let isSpinning = false;
         let audioCtx = null;
+        let ruletaActivada = false;
 
-        function getDb() {
-            return JSON.parse(localStorage.getItem('casino_db')) || { users: {}, payments: [] };
-        }
-
-        function saveDb(db) {
-            localStorage.setItem('casino_db', JSON.stringify(db));
-        }
-
-        function registrarSesion() {
-            const cedula = document.getElementById('userCedulaInput').value.trim().toUpperCase();
-            if (!cedula) {
-                alert("Por favor ingresa tu cédula.");
-                return;
-            }
-            currentUser = cedula;
-            let db = getDb();
-            if (!db.users[cedula]) {
-                db.users[cedula] = { tiros: 0 };
-                saveDb(db);
-            }
-            userTiros = db.users[cedula].tiros;
-            
-            document.getElementById('lblCedula').innerText = cedula;
-            document.getElementById('lblTiros').innerText = userTiros;
-            document.getElementById('loginSessionBox').style.display = 'none';
-            
-            actualizarBotonGirar();
-            playBeep(600, 0.1);
-        }
-
-        function actualizarBotonGirar() {
-            const btn = document.getElementById('spinBtn');
-            if (userTiros > 0) {
-                btn.disabled = false;
-                btn.innerText = `¡Girar Ruleta (${userTiros} disponibles)!`;
+        // --- ACTIVAR RULETA CON EL PIN 1712 ---
+        function activarRuleta() {
+            const pin = document.getElementById('userPinInput').value.trim();
+            if (pin === "1712") {
+                ruletaActivada = true;
+                document.getElementById('loginSessionBox').style.display = 'none';
+                
+                const btnGirar = document.getElementById('spinBtn');
+                btnGirar.disabled = false;
+                btnGirar.innerText = "¡GIRAR RULETA!";
+                
+                playBeep(600, 0.1);
             } else {
-                btn.disabled = true;
-                btn.innerText = "Sin giros (Compra más abajo)";
+                alert("PIN incorrecto. Acceso denegado.");
+                playLoseSound();
             }
         }
 
-        // --- CONTROL DE MÚSICA DE FONDO OPTIMIZADO ---
-        function toggleAudio() {
-            const bgMusic = document.getElementById('bgMusic');
-            const btn = document.getElementById('audioBtn');
-            
-            if (bgMusic.paused) {
-                bgMusic.play().catch(() => alert("Aún no has puesto el enlace de tu música en el código HTML."));
-                btn.style.borderColor = 'var(--neon-pink)';
-                btn.style.background = 'var(--neon-pink)';
-                btn.style.color = 'white';
-                btn.innerText = "🎵 Pausar";
-            } else {
-                bgMusic.pause();
-                btn.style.borderColor = 'var(--neon-cyan)';
-                btn.style.background = 'transparent';
-                btn.style.color = 'var(--neon-cyan)';
-                btn.innerText = "🎵 Música";
-            }
-        }
-
-        // --- EFECTOS DE SONIDO SINTÉTICOS PARA GANAR/PERDER (NO NECESITAN ARCHIVOS) ---
+        // --- EFECTOS DE SONIDO SINTÉTICOS ---
         function initAudio() {
             if (!audioCtx) {
                 audioCtx = new (window.AudioContext || window.webkitAudioContext)();
@@ -554,4 +365,92 @@
 
             premios.forEach((premio, i) => {
                 const angle = anguloRotacion + i * arc;
-                ctx.begin
+                ctx.beginPath();
+                ctx.fillStyle = premio.color;
+                ctx.moveTo(radius, radius);
+                ctx.arc(radius, radius, radius - 5, angle, angle + arc, false);
+                ctx.lineTo(radius, radius);
+                ctx.fill();
+                ctx.strokeStyle = '#0a060f';
+                ctx.lineWidth = 2;
+                ctx.stroke();
+
+                ctx.save();
+                ctx.translate(radius, radius);
+                ctx.rotate(angle + arc / 2);
+                ctx.textAlign = "right";
+                ctx.fillStyle = "#ffffff";
+                // Ajuste del texto para que entre bien
+                ctx.font = "bold 10px 'Rajdhani', sans-serif";
+                ctx.fillText(premio.texto, radius - 15, 4);
+                ctx.restore();
+            });
+
+            // Centro negro
+            ctx.beginPath();
+            ctx.arc(radius, radius, 18, 0, 2 * Math.PI);
+            ctx.fillStyle = '#0a060f';
+            ctx.fill();
+            ctx.lineWidth = 3;
+            ctx.strokeStyle = 'var(--neon-pink)';
+            ctx.stroke();
+        }
+
+        function girarRuleta() {
+            if (isSpinning || !ruletaActivada) return;
+            
+            isSpinning = true;
+            document.getElementById('spinBtn').disabled = true;
+
+            const resultBox = document.getElementById('resultBox');
+            resultBox.style.display = 'none';
+
+            let spinAngleValue = Math.random() * 2000 + 3000;
+            let start = null;
+            let duration = 4000;
+
+            function animar(timestamp) {
+                if (!start) start = timestamp;
+                let progress = timestamp - start;
+                let easeOut = 1 - Math.pow(1 - Math.min(progress / duration, 1), 3);
+                let currentRot = currentAngle + easeOut * spinAngleValue;
+
+                dibujarRuleta(currentRot);
+                playBeep(800, 0.05, 'square');
+
+                if (progress < duration) {
+                    requestAnimationFrame(animar);
+                } else {
+                    currentAngle = currentRot % (2 * Math.PI);
+                    isSpinning = false;
+                    document.getElementById('spinBtn').disabled = false;
+                    
+                    const arc = (2 * Math.PI) / premios.length;
+                    const normalizedAngle = (2 * Math.PI - (currentAngle % (2 * Math.PI)) + Math.PI / 2) % (2 * Math.PI);
+                    const index = Math.floor(normalizedAngle / arc) % premios.length;
+                    const ganado = premios[index];
+
+                    resultBox.style.display = 'block';
+
+                    if(ganado.tipo === "premio") {
+                        playWinSound();
+                        let mensajeAEnviar = `${telegramLink}?text=Hola%20Roxy,%20he%20girado%20la%20ruleta%20VIP%20y%20gané:%20*${encodeURIComponent(ganado.texto)}*.%20¡Vengo%20a%20reclamarlo!`;
+                        
+                        resultBox.innerHTML = `🎉 ¡FELICIDADES!<br>Ganaste: <strong>${ganado.texto}</strong><br>
+                        <a href="${mensajeAEnviar}" target="_blank" class="telegram-btn">💬 RECLAMAR EN MI PRIVADO</a>`;
+                    } else {
+                        playLoseSound();
+                        resultBox.innerHTML = `❌ ¡Caíste en <strong>${ganado.texto}</strong>!<br><span style="font-size:0.95rem; color:#aaa;">La suerte no estuvo de tu lado, ¡gira de nuevo!</span>`;
+                    }
+                }
+            }
+            requestAnimationFrame(animar);
+        }
+
+        // Cargar ruleta inmediatamente al entrar a la página
+        setTimeout(() => {
+            dibujarRuleta(0);
+        }, 100);
+    </script>
+</body>
+</html>
